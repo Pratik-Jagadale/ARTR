@@ -1,0 +1,14 @@
+Integration of Window + Full screen + File IO + Center window + Game Loop + 
+
+WM_ERASEBKGND -> if there is WM_PAINT then there is no sepcial need of spricial need of erase backgound
+ PS.member(erase fbk) is always true 
+
+ if its skeltion appp of gameloop then there is everthing is done using opengl then there is 
+ no one to erase background.
+ and we do not wont go these msg go to DefWindowProc 
+
+it 	resize(LOWORD(lParam), HIWORD(lParam));
+lParam->
+    32 bit -> _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ | _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+                16 bit(LOWORD)                              16bit(HIWORD)
+
