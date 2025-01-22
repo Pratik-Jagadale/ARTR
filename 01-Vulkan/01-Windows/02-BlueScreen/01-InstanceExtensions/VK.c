@@ -1,8 +1,16 @@
 // HEADER FILES
 #include <windows.h>
-#include "VK.h"
 #include <stdio.h>
 #include <stdlib.h>
+
+#include "VK.h"
+
+// VULKAN HEADERS
+#define VK_USE_PLATFORM_WIN32_KHR
+#include <vulkan/vulkan.h>
+
+// VULKAN LIBRARY LINKING
+#pragma comment(lib, "vulkan-1.lib")
 
 #define WINWIDTH 800
 #define WINHEIGHT 600
@@ -19,11 +27,16 @@ HWND ghwnd = NULL;
 BOOL gbFullScreen = FALSE;
 FILE *gpFile = NULL;
 
+// INSTANCE EXTENSION RELATED VARIABLES
+// VK_KHR_SURFACE_EXTENSION_NAME & VK_KHR_WIN32_SURFACE_EXTENSION_NAME
+uint32_t enabledExtensionCount = 0;
+const char *enabledInstanceExtensionNames_Array[2];
+
 // ENTRY POINT FUNCTION
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmdLine, int iCmdShow)
 {
 	// FUNCTION DECLARATIONS
-	int initialize(void);
+	VkResult initialize(void);
 	void uninitialize(void);
 	void display(void);
 	void update(void);
@@ -34,6 +47,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmdLi
 	MSG msg;
 	TCHAR szAppName[255];
 	BOOL bDone = FALSE;
+	VkResult vkResult = VK_SUCCESS;
 
 	int iRetVal = 0;
 	int iHeightOfWindow;
@@ -95,7 +109,17 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmdLi
 	ghwnd = hwnd;
 
 	// INITIALIZE
-	iRetVal = initialize();
+	vkResult = initialize();
+	if (vkResult != VK_SUCCESS)
+	{
+		fprintf(gpFile, "%s : initialize()  IS FAILED.\n", __func__);
+		DestroyWindow(hwnd);
+		hwnd = NULL;
+	}
+	else
+	{
+		fprintf(gpFile, "%s : initialize() IS SUCCESS.\n", __func__);
+	}
 
 	ShowWindow(hwnd, iCmdShow);
 
@@ -231,16 +255,26 @@ void ToggleFullScreen()
 	}
 }
 
-int initialize(void)
+VkResult initialize(void)
 {
 	// FUNCTION DECLARATIONS
+	VkResult fillInstanceExtensionNames(void);
 
 	// VARIABLE DECLARATIONS
+	VkResult vkResult = VK_SUCCESS;
 
 	// CODE
+	vkResult = fillInstanceExtensionNames();
+	if (vkResult != VK_SUCCESS)
+	{
+		fprintf(gpFile, "%s : fillInstanceExtensionNames() IS FAILED.\n", __func__);
+	}
+	else
+	{
+		fprintf(gpFile, "%s : fillInstanceExtensionNames() IS SUCCESS.\n", __func__);
+	}
 
-	fprintf(gpFile, "%s : INITIALIZED SUCCESSFULLY.\n", __func__);
-	return (0);
+	return (VK_SUCCESS);
 }
 
 void resize(int width, int height)
@@ -280,4 +314,125 @@ void uninitialize(void)
 		fclose(gpFile);
 		gpFile = NULL;
 	}
+}
+
+////////////////////////////////////////////// VULKAN RELATED FUNCTIONS //////////////////////////////////////////////
+
+VkResult fillInstanceExtensionNames(void)
+{
+	uint32_t instanceExtensionCount = 0;
+	VkResult vkResult = VK_SUCCESS;
+
+	vkResult = vkEnumerateInstanceExtensionProperties(NULL, &instanceExtensionCount, NULL);
+	if (vkResult != VK_SUCCESS)
+	{
+		fprintf(gpFile, "%s : FIRST CALL TO vkEnumerateInstanceExtensionProperties().\n", __func__);
+		fprintf(gpFile, "%s : vkEnumerateInstanceExtensionProperties() IS FAILED.\n", __func__);
+	}
+	else
+	{
+		fprintf(gpFile, "%s : Extension Count : %d.\n", __func__, instanceExtensionCount);
+
+		fprintf(gpFile, "%s : FIRST CALL TO vkEnumerateInstanceExtensionProperties().\n", __func__);
+		fprintf(gpFile, "%s : vkEnumerateInstanceExtensionProperties() IS SUCCESS.\n", __func__);
+	}
+
+	VkExtensionProperties *vkExtensionProperties_array = NULL;
+
+	vkExtensionProperties_array = (VkExtensionProperties *)malloc(sizeof(VkExtensionProperties) * instanceExtensionCount);
+
+	vkResult = vkEnumerateInstanceExtensionProperties(NULL, &instanceExtensionCount, vkExtensionProperties_array);
+	if (vkResult != VK_SUCCESS)
+	{
+		fprintf(gpFile, "%s : SECOND CALL TO vkEnumerateInstanceExtensionProperties().\n", __func__);
+		fprintf(gpFile, "%s : vkEnumerateInstanceExtensionProperties() IS FAILED.\n", __func__);
+	}
+	else
+	{
+		fprintf(gpFile, "%s : SECOND CALL TO vkEnumerateInstanceExtensionProperties().\n", __func__);
+		fprintf(gpFile, "%s : vkEnumerateInstanceExtensionProperties() IS SUCCESS.\n", __func__);
+	}
+
+	char **instanceExtensionNames_Array = NULL;
+	instanceExtensionNames_Array = (char **)malloc(sizeof(char *) * instanceExtensionCount);
+
+	for (uint32_t i = 0; i < instanceExtensionCount; i++)
+	{
+		instanceExtensionNames_Array[i] = (char *)malloc(sizeof(char) * (strlen(vkExtensionProperties_array[i].extensionName) + 1));
+		memcpy(instanceExtensionNames_Array[i], vkExtensionProperties_array[i].extensionName, strlen(vkExtensionProperties_array[i].extensionName) + 1);
+
+		fprintf(gpFile, "%s : Vulakn Extension Name = %s.\n", __func__, instanceExtensionNames_Array[i]);
+	}
+
+	if (vkExtensionProperties_array)
+	{
+		free(vkExtensionProperties_array);
+		vkExtensionProperties_array = NULL;
+	}
+	VkBool32 vulkanSurfaceExtensionFound = VK_FALSE;
+	VkBool32 win32SurfaceExtensionFound = VK_FALSE;
+
+	for (uint32_t i = 0; i < instanceExtensionCount; i++)
+	{
+		if (strcmp(instanceExtensionNames_Array[i], VK_KHR_SURFACE_EXTENSION_NAME) == 0)
+		{
+			vulkanSurfaceExtensionFound = VK_TRUE;
+			enabledInstanceExtensionNames_Array[enabledExtensionCount++] = VK_KHR_SURFACE_EXTENSION_NAME;
+		}
+
+		if (strcmp(instanceExtensionNames_Array[i], VK_KHR_WIN32_SURFACE_EXTENSION_NAME) == 0)
+		{
+			win32SurfaceExtensionFound = VK_TRUE;
+			enabledInstanceExtensionNames_Array[enabledExtensionCount++] = VK_KHR_WIN32_SURFACE_EXTENSION_NAME;
+		}
+	}
+
+	// FREE ALLOCATED MEMORY
+	for (uint32_t i = 0; i < instanceExtensionCount; i++)
+	{
+		if (instanceExtensionNames_Array[i])
+		{
+			free(instanceExtensionNames_Array[i]);
+			instanceExtensionNames_Array[i] = NULL;
+		}
+	}
+
+	if (instanceExtensionNames_Array)
+	{
+		free(instanceExtensionNames_Array);
+		instanceExtensionNames_Array = NULL;
+	}
+
+	// DISPLAY SUPPORTED EXTENSION NAME.
+	if (vulkanSurfaceExtensionFound == VK_FALSE)
+	{
+		vkResult = VK_ERROR_INITIALIZATION_FAILED;
+		fprintf(gpFile, "%s : VK_KHR_SURFACE_EXTENSION_NAME NOT FOUND.\n", __func__);
+
+		return (vkResult);
+	}
+	else
+	{
+		fprintf(gpFile, "%s : VK_KHR_SURFACE_EXTENSION_NAME FOUND.\n", __func__);
+	}
+
+	if (win32SurfaceExtensionFound == VK_FALSE)
+	{
+		vkResult = VK_ERROR_INITIALIZATION_FAILED;
+		fprintf(gpFile, "%s : VK_KHR_WIN32_SURFACE_EXTENSION_NAME NOT FOUND.\n", __func__);
+
+		return (vkResult);
+	}
+	else
+	{
+		fprintf(gpFile, "%s : VK_KHR_WIN32_SURFACE_EXTENSION_NAME FOUND.\n", __func__);
+	}
+
+	// Print only supported extension names.
+	for (uint32_t i = 0; i < enabledExtensionCount; i++)
+	{
+		fprintf(gpFile, "%s : Enabled Vulkan Instance Extension Names = %s.\n", __func__, enabledInstanceExtensionNames_Array[i]);
+	}
+
+	return (vkResult);
 }
