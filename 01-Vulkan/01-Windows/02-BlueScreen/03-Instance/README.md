@@ -53,3 +53,4 @@ Call vkCreateInstance function to get VkInstance in a global variable and do err
 # STEP - 5
 Destroy VkInstance in uninitailize.
 
+Our Extension will be enabled in vkCreateInstance()
