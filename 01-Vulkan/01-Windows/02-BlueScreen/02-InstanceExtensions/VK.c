@@ -274,7 +274,7 @@ VkResult initialize(void)
 		fprintf(gpFile, "%s : fillInstanceExtensionNames() IS SUCCESS.\n", __func__);
 	}
 
-	return (VK_SUCCESS);
+	return (vkResult);
 }
 
 void resize(int width, int height)

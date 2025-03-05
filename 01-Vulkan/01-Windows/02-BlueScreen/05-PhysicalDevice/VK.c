@@ -340,6 +340,8 @@ void uninitialize(void)
 	if (gbFullScreen)
 		ToggleFullScreen();
 
+	// NO NEED TO DESTOY SELCTED PHYSICALD DEVICE
+
 	// DESTROY VULKAN PRESENTATION SURFACE
 	if (vkSurfaceKHR)
 	{
@@ -656,6 +658,8 @@ VkResult getPhysicalDevice(void)
 				}
 			}
 		}
+
+
 		if (isQueueSurfaceSupported_array)
 		{
 
@@ -689,6 +693,12 @@ VkResult getPhysicalDevice(void)
 	}
 	else
 	{
+		if (vkPhysicalDevice_array)
+		{
+			free(vkPhysicalDevice_array);
+			vkPhysicalDevice_array = NULL;
+		}
+		
 		fprintf(gpFile, "%s : getPhysicalDevice IS FAIELD TO GET PHYSICAL DEVICE.\n", __func__);
 		vkResult = VK_ERROR_INITIALIZATION_FAILED;
 		return (vkResult);

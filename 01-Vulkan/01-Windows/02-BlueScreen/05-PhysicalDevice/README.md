@@ -51,3 +51,6 @@ By Using Tesselation shader member of above structure check selcted devices tess
 
 # STEP - 11
 By Using Geometry shader member of above structure check selcted devices Geometry shader support.
+
+# STEP - 12
+There is no need ti free/destroy selected device beacuse later we will create vulkan logical device which we need to destroy & It's destruction will automatticaly destroy physical device. 

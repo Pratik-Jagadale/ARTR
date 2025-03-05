@@ -1,4 +1,4 @@
-  // HEADER FILES
+// HEADER FILES
 #include <windows.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -33,6 +33,17 @@ const char *enabledInstanceExtensionNames_Array[2]; // VK_KHR_SURFACE_EXTENSION_
 
 // VULKAN INSTANCE
 VkInstance vkInstance = VK_NULL_HANDLE;
+
+// Vulkan Presentation Surface
+VkSurfaceKHR vkSurfaceKHR = VK_NULL_HANDLE;
+
+// VULKAN PHYSICAL DEVICE RELATED
+VkPhysicalDevice vkPhysicalDevice_selected = VK_NULL_HANDLE;
+uint32_t graphicsQueueFamilyIndex_selected = UINT32_MAX;
+VkPhysicalDeviceMemoryProperties vkPhysicalDeviceMemoryProperties;
+
+uint32_t physicalDeviceCount = 0;
+VkPhysicalDevice *vkPhysicalDevice_array = NULL;
 
 // ENTRY POINT FUNCTION
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmdLine, int iCmdShow)
@@ -261,6 +272,9 @@ VkResult initialize(void)
 {
 	// FUNCTION DECLARATIONS
 	VkResult createVulkanInstance(void);
+	VkResult getSupportedSurface(void);
+	VkResult getPhysicalDevice(void);
+	VkResult printVKInfo(void);
 
 	// VARIABLE DECLARATIONS
 	VkResult vkResult = VK_SUCCESS;
@@ -270,10 +284,47 @@ VkResult initialize(void)
 	if (vkResult != VK_SUCCESS)
 	{
 		fprintf(gpFile, "%s : createVulkanInstance() IS FAILED.\n", __func__);
+		return (VK_ERROR_INITIALIZATION_FAILED);
 	}
 	else
 	{
 		fprintf(gpFile, "%s : createVulkanInstance() IS SUCCESS.\n", __func__);
+	}
+
+	// CREATE VULKAN PRESENTATION SURFACE
+	vkResult = getSupportedSurface();
+	if (vkResult != VK_SUCCESS)
+	{
+		fprintf(gpFile, "%s : getSupportedSurface() IS FAILED.\n", __func__);
+		vkResult = VK_ERROR_INITIALIZATION_FAILED;
+	}
+	else
+	{
+		fprintf(gpFile, "%s : getSupportedSurface() IS SUCCESS.\n", __func__);
+	}
+
+	// PHYSICAL DEVICE
+	vkResult = getPhysicalDevice();
+	if (vkResult != VK_SUCCESS)
+	{
+		fprintf(gpFile, "%s : getPhysicalDevice() IS FAILED.\n", __func__);
+		vkResult = VK_ERROR_INITIALIZATION_FAILED;
+	}
+	else
+	{
+		fprintf(gpFile, "%s : getPhysicalDevice() IS SUCCESS.\n", __func__);
+	}
+
+	// PRINT VK INFO
+	vkResult = printVKInfo();
+	if (vkResult != VK_SUCCESS)
+	{
+		fprintf(gpFile, "%s : printVKInfo() IS FAILED.\n", __func__);
+		vkResult = VK_ERROR_INITIALIZATION_FAILED;
+	}
+	else
+	{
+		fprintf(gpFile, "%s : printVKInfo() IS SUCCESS.\n", __func__);
 	}
 
 	return (vkResult);
@@ -305,23 +356,35 @@ void uninitialize(void)
 	if (gbFullScreen)
 		ToggleFullScreen();
 
+	// NO NEED TO DESTOY SELCTED PHYSICALD DEVICE
+
+	// DESTROY VULKAN PRESENTATION SURFACE
+	if (vkSurfaceKHR)
+	{
+		vkDestroySurfaceKHR(vkInstance, vkSurfaceKHR, NULL); // IT'S NOR PLATFORM SPECIFIC
+		vkSurfaceKHR = VK_NULL_HANDLE;
+		fprintf(gpFile, "%s : DESTROY VULKAN PRESENTATION SURFACE.\n", __func__);
+	}
+
 	// DESTROY VULKAN INSTANCE
 	if (vkInstance)
 	{
 		vkDestroyInstance(vkInstance, NULL);
 		vkInstance = VK_NULL_HANDLE;
+		fprintf(gpFile, "%s : DESTROY VULKAN INSTANCE.\n", __func__);
 	}
 
 	if (ghwnd)
 	{
 		DestroyWindow(ghwnd);
+		fprintf(gpFile, "%s : DESTROY WINDOW.\n", __func__);
 	}
 
 	if (gpFile)
 	{
-		fprintf(gpFile, "%s : LOG FILE SUCCESSFULLY CLOSED.\n", __func__);
 		fclose(gpFile);
 		gpFile = NULL;
+		fprintf(gpFile, "%s : LOG FILE SUCCESSFULLY CLOSED.\n", __func__);
 	}
 }
 
@@ -373,7 +436,7 @@ VkResult createVulkanInstance(void)
 	if (vkResult == VK_ERROR_INCOMPATIBLE_DRIVER)
 	{
 		fprintf(gpFile, "%s : vkCreateInstance() IS FAILED - INCOMPATIBLE_DRIVER %d.\n", __func__, vkResult);
-		return vkResult;
+		return (vkResult);
 	}
 	else if (vkResult == VK_ERROR_EXTENSION_NOT_PRESENT)
 	{
@@ -510,4 +573,233 @@ VkResult fillInstanceExtensionNames(void)
 	}
 
 	return (vkResult);
+}
+
+VkResult getSupportedSurface(void)
+{
+	// VARIABLE DECLARTIONS
+	VkResult vkResult = VK_SUCCESS;
+
+	// CODE
+	VkWin32SurfaceCreateInfoKHR vkWin32SurfaceCreateInfoKHR;
+	memset((void *)&vkWin32SurfaceCreateInfoKHR, 0, sizeof(VkWin32SurfaceCreateInfoKHR));
+
+	vkWin32SurfaceCreateInfoKHR.sType = VK_STRUCTURE_TYPE_WIN32_SURFACE_CREATE_INFO_KHR;
+	vkWin32SurfaceCreateInfoKHR.pNext = NULL;
+	vkWin32SurfaceCreateInfoKHR.flags = 0;
+	vkWin32SurfaceCreateInfoKHR.hinstance = (HINSTANCE)GetWindowLongPtr(ghwnd, GWLP_HINSTANCE); // also we can use (HINSTANCE)GetModule(NULL)
+	vkWin32SurfaceCreateInfoKHR.hwnd = ghwnd;
+
+	vkResult = vkCreateWin32SurfaceKHR(vkInstance, &vkWin32SurfaceCreateInfoKHR, NULL, &vkSurfaceKHR);
+	if (vkResult != VK_SUCCESS)
+	{
+		fprintf(gpFile, "%s : vkCreateWin32SurfaceKHR()  IS FAILED.\n", __func__);
+		return (vkResult);
+	}
+	else
+	{
+		fprintf(gpFile, "%s : vkCreateWin32SurfaceKHR() IS SUCCESS.\n", __func__);
+	}
+	return (vkResult);
+}
+
+VkResult getPhysicalDevice(void)
+{
+	// VARIABLE DECLARTIONS
+	VkResult vkResult = VK_SUCCESS;
+
+	// CODE
+	vkResult = vkEnumeratePhysicalDevices(vkInstance, &physicalDeviceCount, NULL);
+	if (vkResult != VK_SUCCESS)
+	{
+		fprintf(gpFile, "%s : vkEnumeratePhysicalDevices() : 1 IS FAILED.\n", __func__);
+		return (vkResult);
+	}
+	else if (physicalDeviceCount == 0)
+	{
+		fprintf(gpFile, "%s : physicalDeviceCount IS ZERO.\n", __func__);
+		return (vkResult);
+	}
+	else
+	{
+		fprintf(gpFile, "%s : vkEnumeratePhysicalDevices() : 1 IS SUCCESS.\n", __func__);
+	}
+
+	// Allocate VkQueueFamilyProperties Array according to above count.
+	vkPhysicalDevice_array = (VkPhysicalDevice *)malloc(sizeof(VkPhysicalDevice) * physicalDeviceCount);
+
+	vkResult = vkEnumeratePhysicalDevices(vkInstance, &physicalDeviceCount, vkPhysicalDevice_array);
+	if (vkResult != VK_SUCCESS)
+	{
+		fprintf(gpFile, "%s : vkEnumeratePhysicalDevices() : 2 IS FAILED.\n", __func__);
+		return (vkResult);
+	}
+	else
+	{
+		fprintf(gpFile, "%s : vkEnumeratePhysicalDevices() : 2 IS SUCCESS.\n", __func__);
+	}
+
+	VkBool32 bFound = VK_FALSE;
+
+	for (uint32_t i = 0; i < physicalDeviceCount; i++)
+	{
+		uint32_t queueCount = UINT32_MAX; // IF PHYSICAL DEVICE PRESEN IT MUST PRESENT AT LEAST ONE QUEUE FAMILY
+		vkGetPhysicalDeviceQueueFamilyProperties(vkPhysicalDevice_array[i], &queueCount, NULL);
+
+		VkQueueFamilyProperties *vkQueueFamilyProperties_array = NULL;
+		vkQueueFamilyProperties_array = (VkQueueFamilyProperties *)malloc(sizeof(VkQueueFamilyProperties) * queueCount);
+
+		vkGetPhysicalDeviceQueueFamilyProperties(vkPhysicalDevice_array[i], &queueCount, vkQueueFamilyProperties_array);
+		VkBool32 *isQueueSurfaceSupported_array = NULL;
+
+		isQueueSurfaceSupported_array = (VkBool32 *)malloc(sizeof(VkBool32 *) * queueCount);
+
+		for (uint32_t j = 0; j < queueCount; j++)
+		{
+			vkGetPhysicalDeviceSurfaceSupportKHR(vkPhysicalDevice_array[i], j, vkSurfaceKHR, &isQueueSurfaceSupported_array[j]);
+		}
+
+		for (uint32_t j = 0; j < queueCount; j++)
+		{
+			if (vkQueueFamilyProperties_array[j].queueFlags & VK_QUEUE_GRAPHICS_BIT)
+			{
+				if (isQueueSurfaceSupported_array[j] == VK_TRUE)
+				{
+					vkPhysicalDevice_selected = vkPhysicalDevice_array[i];
+					graphicsQueueFamilyIndex_selected = j;
+					bFound = VK_TRUE;
+					break;
+				}
+			}
+		}
+
+		if (isQueueSurfaceSupported_array)
+		{
+
+			free(isQueueSurfaceSupported_array);
+			isQueueSurfaceSupported_array = NULL;
+
+			fprintf(gpFile, "%s : SUCCEDED TO FREE isQueueSurfaceSupported_array.\n", __func__);
+		}
+
+		if (vkQueueFamilyProperties_array)
+		{
+			free(vkQueueFamilyProperties_array);
+			vkQueueFamilyProperties_array = NULL;
+
+			fprintf(gpFile, "%s : SUCCEDED TO FREE vkQueueFamilyProperties_array.\n", __func__);
+		}
+
+		if (bFound == VK_TRUE)
+			break;
+	}
+
+	if (bFound == VK_TRUE)
+	{
+		fprintf(gpFile, "%s : getPhysicalDevice IS SUCCEDED TO GET PHYSICAL DEVICE.\n", __func__);
+	}
+	else
+	{
+		if (vkPhysicalDevice_array)
+		{
+			free(vkPhysicalDevice_array);
+			vkPhysicalDevice_array = NULL;
+		}
+
+		fprintf(gpFile, "%s : getPhysicalDevice IS FAIELD TO GET PHYSICAL DEVICE.\n", __func__);
+		vkResult = VK_ERROR_INITIALIZATION_FAILED;
+		return (vkResult);
+	}
+
+	memset((void *)&vkPhysicalDeviceMemoryProperties, 0, sizeof(VkPhysicalDeviceMemoryProperties));
+
+	vkGetPhysicalDeviceMemoryProperties(vkPhysicalDevice_selected, &vkPhysicalDeviceMemoryProperties);
+
+	VkPhysicalDeviceFeatures vkPhysicalDeviceFeatures;
+	memset((void *)&vkPhysicalDeviceFeatures, 0, sizeof(VkPhysicalDeviceFeatures));
+
+	vkGetPhysicalDeviceFeatures(vkPhysicalDevice_selected, &vkPhysicalDeviceFeatures);
+
+	if (vkPhysicalDeviceFeatures.tessellationShader)
+	{
+		fprintf(gpFile, "%s : SELECTED DEVICE SUPPORTS TESSELATION SHADER.\n", __func__);
+	}
+	else
+	{
+		fprintf(gpFile, "%s : SELECTED DEVICE NOT SUPPORTS TESSELATION SHADER.\n", __func__);
+	}
+
+	if (vkPhysicalDeviceFeatures.geometryShader)
+	{
+		fprintf(gpFile, "%s : SELECTED DEVICE SUPPORTS GEOMETRY SHADER.\n", __func__);
+	}
+	else
+	{
+		fprintf(gpFile, "%s : SELECTED DEVICE NOT SUPPORTS GEOMETRY SHADER.\n", __func__);
+	}
+
+	return (vkResult);
+}
+
+VkResult printVKInfo(void)
+{
+	// VARIABLE DECLARTIONS
+
+	// CODE
+	fprintf(gpFile, "\n============================ Print Vulkan Info ======================\n");
+
+	for (uint32_t i = 0; i < physicalDeviceCount; i++)
+	{
+		VkPhysicalDeviceProperties vkPhysicalDeviceProperties;
+		memset((void *)&vkPhysicalDeviceProperties, 0, sizeof(VkPhysicalDeviceProperties));
+
+		vkGetPhysicalDeviceProperties(vkPhysicalDevice_array[i], &vkPhysicalDeviceProperties);
+
+		uint32_t majorVersion = VK_API_VERSION_MAJOR(vkPhysicalDeviceProperties.apiVersion);
+		uint32_t minorVersion = VK_API_VERSION_MINOR(vkPhysicalDeviceProperties.apiVersion);
+		uint32_t patchVersion = VK_API_VERSION_PATCH(vkPhysicalDeviceProperties.apiVersion);
+
+		fprintf(gpFile, "API VERSION : %d.%d.%d.\n", (uint32_t)majorVersion, (uint32_t)minorVersion, (uint32_t)patchVersion);
+		fprintf(gpFile, "DEVICE NAME : %s.\n", vkPhysicalDeviceProperties.deviceName);
+
+		switch (vkPhysicalDeviceProperties.deviceType)
+		{
+		case VK_PHYSICAL_DEVICE_TYPE_INTEGRATED_GPU:
+			fprintf(gpFile, "DEVICE TYPE : INTEGRATED GPU (iGPU).\n");
+			break;
+
+		case VK_PHYSICAL_DEVICE_TYPE_DISCRETE_GPU:
+			fprintf(gpFile, "DEVICE TYPE : DISCRETE GPU (dGPU).\n");
+			break;
+
+		case VK_PHYSICAL_DEVICE_TYPE_VIRTUAL_GPU:
+			fprintf(gpFile, "DEVICE TYPE : VIRTUAL GPU (vGPU).\n");
+			break;
+
+		case VK_PHYSICAL_DEVICE_TYPE_CPU:
+			fprintf(gpFile, "DEVICE TYPE : CPU.\n");
+			break;
+
+		case VK_PHYSICAL_DEVICE_TYPE_OTHER:
+			fprintf(gpFile, "DEVICE TYPE : OTHER.\n");
+			break;
+
+		default:
+			fprintf(gpFile, "DEVICE TYPE : UNKNOWN.\n");
+			break;
+		}
+
+		fprintf(gpFile, "VENDOR ID : 0x%04x.\n", vkPhysicalDeviceProperties.vendorID);
+		fprintf(gpFile, "DEVICE ID : 0x%04x.\n", vkPhysicalDeviceProperties.deviceID);
+	}
+
+	if (vkPhysicalDevice_array)
+	{
+		fprintf(gpFile, "%s : vkPhysicalDevice_array DESTROYED.\n", __func__);
+		free(vkPhysicalDevice_array);
+		vkPhysicalDevice_array = NULL;
+	}
+	fprintf(gpFile, "======================================================================\n\n");
+
+	return VK_SUCCESS;
 }
