@@ -303,7 +303,21 @@ fillDeviceExtensionNames : Vulakn Device Extension Name = VK_GOOGLE_user_type.
 fillDeviceExtensionNames : VK_KHR_SWAPCHAIN_EXTENSION_NAME FOUND.
 ========================================================================================
 fillDeviceExtensionNames : Enabled Vulkan Device Extension NAMES = VK_KHR_swapchain.
-initialize : fillDeviceExtensionNames() IS SUCCESS.
+createVulkanDevice : fillDeviceExtensionNames() Succeeded
+createVulkanDevice : vkCreateDevice() Succeeded
+initialize : createVulkanDevice() IS SUCCESS.
+========================================================================================
+getDeviceQueue : vkGetDeviceQueue() returned NULL for vkQuueue 0
+getPhysicalDeviceSurfaceFormateAndColorSpace() => vkGetPhysicalDeviceSurfaceFormatsKHRF() First Call Succeeded
+getPhysicalDeviceSurfaceFormateAndColorSpace() => vkGetPhysicalDeviceSurfaceFormatsKHRF() Second Call Succeeded
+getPhysicalDeviceSurfaceFormateAndColorSpace : vkSurfaceFormatKHR_Array free succesfully...
+initialize : getPhysicalDeviceSurfaceFormateAndColorSpace() IS SUCCESS.
+========================================================================================
+getPhysicalDevicePresentMode : vkGetPhysicalDeviceSurfacePresentModesKHRF() First Call Succeeded
+getPhysicalDevicePresentMode : vkGetPhysicalDeviceSurfacePresentModesKHRF() Second Call Succeeded
+getPhysicalDevicePresentMode : VK_PRESENT_MODE_MAILBOX_KHR
+getPhysicalDevicePresentMode : vkPresentModeKHR_array free succesfully...
+initialize : getPhysicalDevicePresentMode() IS SUCCESS.
 ========================================================================================
 WinMain : initialize() IS SUCCESS.
 WndProc : LOG FILE SUCCESSFULLY CLOSED.

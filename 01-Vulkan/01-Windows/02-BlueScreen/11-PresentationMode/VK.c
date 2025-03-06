@@ -49,6 +49,19 @@ VkPhysicalDevice *vkPhysicalDevice_array = NULL;
 uint32_t enabledDeviceExtensionCount = 0;
 const char *enabledDeviceExtensionNames_Array[1]; // VK_KHR_SWAPCHAIN_EXTENSION_NAME
 
+// VK DEVICE
+VkDevice vkDevice = VK_NULL_HANDLE;
+
+// DEVICE QUEUE
+VkQueue vkQueue = VK_NULL_HANDLE;
+
+// COLOR FORMAT & COLOR SPACE
+VkFormat vkFormat_color = VK_FORMAT_UNDEFINED;
+VkColorSpaceKHR vkColorSpaceKHR = VK_COLOR_SPACE_SRGB_NONLINEAR_KHR;
+
+// PRESENTATION MODE
+VkPresentModeKHR vkPresentModeKHR = VK_PRESENT_MODE_FIFO_KHR;
+
 // ENTRY POINT FUNCTION
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpszCmdLine, int iCmdShow)
 {
@@ -280,6 +293,10 @@ VkResult initialize(void)
 	VkResult getPhysicalDevice(void);
 	VkResult printVKInfo(void);
 	VkResult fillDeviceExtensionNames(void);
+	VkResult createVulkanDevice(void);
+	void getDeviceQueue(void);
+	VkResult getPhysicalDeviceSurfaceFormateAndColorSpace(void);
+	VkResult getPhysicalDevicePresentMode(void);
 
 	// VARIABLE DECLARATIONS
 	VkResult vkResult = VK_SUCCESS;
@@ -337,16 +354,45 @@ VkResult initialize(void)
 	}
 	fprintf(gpFile, "========================================================================================\n");
 
-	// DEVICE EXTENSIONS
-	vkResult = fillDeviceExtensionNames();
+	// VULKAN DEVICE
+	vkResult = createVulkanDevice();
 	if (vkResult != VK_SUCCESS)
 	{
-		fprintf(gpFile, "%s : fillDeviceExtensionNames() IS FAILED.\n", __func__);
+		fprintf(gpFile, "%s : createVulkanDevice() IS FAILED.\n", __func__);
 		vkResult = VK_ERROR_INITIALIZATION_FAILED;
 	}
 	else
 	{
-		fprintf(gpFile, "%s : fillDeviceExtensionNames() IS SUCCESS.\n", __func__);
+		fprintf(gpFile, "%s : createVulkanDevice() IS SUCCESS.\n", __func__);
+	}
+	fprintf(gpFile, "========================================================================================\n");
+
+	//  DEVICE QUEUE
+	getDeviceQueue();
+
+	// COLOR FORMAT AND COLOR SPACE
+	vkResult = getPhysicalDeviceSurfaceFormateAndColorSpace();
+	if (vkResult != VK_SUCCESS)
+	{
+		fprintf(gpFile, "%s : getPhysicalDeviceSurfaceFormateAndColorSpace() IS FAILED.\n", __func__);
+		vkResult = VK_ERROR_INITIALIZATION_FAILED;
+	}
+	else
+	{
+		fprintf(gpFile, "%s : getPhysicalDeviceSurfaceFormateAndColorSpace() IS SUCCESS.\n", __func__);
+	}
+	fprintf(gpFile, "========================================================================================\n");
+
+	// PRESENATION MODE
+	vkResult = getPhysicalDevicePresentMode();
+	if (vkResult != VK_SUCCESS)
+	{
+		fprintf(gpFile, "%s : getPhysicalDevicePresentMode() IS FAILED.\n", __func__);
+		vkResult = VK_ERROR_INITIALIZATION_FAILED;
+	}
+	else
+	{
+		fprintf(gpFile, "%s : getPhysicalDevicePresentMode() IS SUCCESS.\n", __func__);
 	}
 	fprintf(gpFile, "========================================================================================\n");
 
@@ -927,4 +973,205 @@ VkResult fillDeviceExtensionNames(void)
 	}
 
 	return (vkResult);
+}
+
+VkResult createVulkanDevice(void)
+{
+	// FUNCTION DECLARTIONS
+	VkResult fillDeviceExtensionNames(void);
+
+	// VARIABLE DECLARTIONS
+	VkResult vkResult = VK_SUCCESS;
+
+	// CODE
+	// FILL DEVICE EXTENSIONS
+	vkResult = fillDeviceExtensionNames();
+	if (vkResult != VK_SUCCESS)
+	{
+		fprintf(gpFile, "%s : fillDeviceExtensionNames() Failed : %d !!!\n", __func__, vkResult);
+		return VK_ERROR_INITIALIZATION_FAILED;
+	}
+	else
+		fprintf(gpFile, "%s : fillDeviceExtensionNames() Succeeded\n", __func__);
+
+	float pQueuePriorities[1];
+	pQueuePriorities[0] = 0.0f;
+
+	VkDeviceQueueCreateInfo vkDeviceQueueCreateInfo;
+	vkDeviceQueueCreateInfo.sType = VK_STRUCTURE_TYPE_DEVICE_QUEUE_CREATE_INFO;
+	vkDeviceQueueCreateInfo.pNext = NULL;
+	vkDeviceQueueCreateInfo.flags = 0;
+	vkDeviceQueueCreateInfo.queueFamilyIndex = graphicsQueueFamilyIndex_selected;
+	vkDeviceQueueCreateInfo.queueCount = 1;
+	vkDeviceQueueCreateInfo.pQueuePriorities = pQueuePriorities;
+
+	// INITIALIZE VkCreateDeviceInfo Structure
+	VkDeviceCreateInfo vkDeviceCreateInfo;
+	vkDeviceCreateInfo.sType = VK_STRUCTURE_TYPE_DEVICE_CREATE_INFO;
+	vkDeviceCreateInfo.pNext = NULL;
+	vkDeviceCreateInfo.flags = 0;
+	vkDeviceCreateInfo.enabledExtensionCount = enabledDeviceExtensionCount;
+	vkDeviceCreateInfo.ppEnabledExtensionNames = enabledDeviceExtensionNames_Array;
+	vkDeviceCreateInfo.enabledLayerCount = 0;
+	vkDeviceCreateInfo.ppEnabledLayerNames = NULL;
+	vkDeviceCreateInfo.pEnabledFeatures = NULL;
+
+	vkDeviceCreateInfo.queueCreateInfoCount = 1;
+	vkDeviceCreateInfo.pQueueCreateInfos = &vkDeviceQueueCreateInfo;
+
+	vkResult = vkCreateDevice(vkPhysicalDevice_selected, &vkDeviceCreateInfo, NULL, &vkDevice);
+	if (vkResult != VK_SUCCESS)
+	{
+		fprintf(gpFile, "%s : vkCreateDevice() Failed : %d !!!\n", __func__, vkResult);
+		return VK_ERROR_INITIALIZATION_FAILED;
+	}
+	else
+		fprintf(gpFile, "%s : vkCreateDevice() Succeeded\n", __func__);
+
+	return vkResult;
+}
+
+void getDeviceQueue(void)
+{
+	// CODE
+	vkGetDeviceQueue(vkDevice, graphicsQueueFamilyIndex_selected, 1, &vkQueue);
+	if (vkQueue == VK_NULL_HANDLE)
+	{
+		fprintf(gpFile, "%s : vkGetDeviceQueue() returned NULL for vkQuueue %d\n", __func__, graphicsQueueFamilyIndex_selected);
+		return;
+	}
+	else
+	{
+		fprintf(gpFile, "%s : vkGetDeviceQueue() Succeeded\n", __func__);
+	}
+}
+
+VkResult getPhysicalDeviceSurfaceFormateAndColorSpace(void)
+{
+	// Variable Declarations
+	VkResult vkResult = VK_SUCCESS;
+
+	// CODE
+	// GET COUNT OF SUPPORTED FORMATS
+	uint32_t format_count = 0;
+
+	vkResult = vkGetPhysicalDeviceSurfaceFormatsKHR(vkPhysicalDevice_selected, vkSurfaceKHR, &format_count, NULL);
+	if (vkResult != VK_SUCCESS)
+	{
+		fprintf(gpFile, "%s() => vkGetPhysicalDeviceSurfaceFormatsKHR() First Call Failed : %d !!!\n", __func__, vkResult);
+		return VK_ERROR_INITIALIZATION_FAILED;
+	}
+	else
+	{
+		fprintf(gpFile, "%s() => vkGetPhysicalDeviceSurfaceFormatsKHRF() First Call Succeeded\n", __func__);
+	}
+
+	// DECLARE AND ALLOCATE VkSurfaceFormatKHR
+	VkSurfaceFormatKHR *vkSurfaceFormatKHR_Array = (VkSurfaceFormatKHR *)malloc(format_count * sizeof(VkSurfaceFormatKHR));
+
+	// FILLING ARRAY
+	vkResult = vkGetPhysicalDeviceSurfaceFormatsKHR(vkPhysicalDevice_selected, vkSurfaceKHR, &format_count, vkSurfaceFormatKHR_Array);
+	if (vkResult != VK_SUCCESS)
+	{
+		fprintf(gpFile, "%s() => vkGetPhysicalDeviceSurfaceFormatsKHR() Second Call Failed : %d !!!\n", __func__, vkResult);
+		return VK_ERROR_INITIALIZATION_FAILED;
+	}
+	else
+	{
+		fprintf(gpFile, "%s() => vkGetPhysicalDeviceSurfaceFormatsKHRF() Second Call Succeeded\n", __func__);
+	}
+
+	// DECIDE THE SURFACE FORMAT
+	if (format_count == 1 && vkSurfaceFormatKHR_Array[0].format == VK_FORMAT_UNDEFINED)
+	{
+		vkFormat_color = VK_FORMAT_B8G8R8A8_UNORM;
+	}
+	else
+	{
+		vkFormat_color = vkSurfaceFormatKHR_Array[0].format;
+	}
+
+	// DECIDE THE COLOR SPACE
+	vkColorSpaceKHR = vkSurfaceFormatKHR_Array[0].colorSpace;
+
+	if (vkSurfaceFormatKHR_Array)
+	{
+		free(vkSurfaceFormatKHR_Array);
+		vkSurfaceFormatKHR_Array = NULL;
+
+		fprintf(gpFile, "%s : vkSurfaceFormatKHR_Array free succesfully...\n", __func__);
+	}
+
+	return vkResult;
+}
+
+VkResult getPhysicalDevicePresentMode(void)
+{
+	// VARIABLE DECLARTIONS
+	VkResult vkResult = VK_SUCCESS;
+
+	// CODE
+	uint32_t presentModeCount = 0;
+
+	vkResult = vkGetPhysicalDeviceSurfacePresentModesKHR(vkPhysicalDevice_selected, vkSurfaceKHR, &presentModeCount, NULL);
+	if (vkResult != VK_SUCCESS)
+	{
+		fprintf(gpFile, "%s : vkGetPhysicalDeviceSurfacePresentModesKHR() First Call Failed : %d !!!\n", __func__, vkResult);
+		return VK_ERROR_INITIALIZATION_FAILED;
+	}
+	else if (presentModeCount == 0)
+	{
+		fprintf(gpFile, "%s : vkGetPhysicalDeviceSurfacePresentModesKHRF() First Call Failed\n", __func__);
+		return VK_ERROR_INITIALIZATION_FAILED;
+	}
+	else
+	{
+		fprintf(gpFile, "%s : vkGetPhysicalDeviceSurfacePresentModesKHRF() First Call Succeeded\n", __func__);
+	}
+
+	// DECLARE AND ALOCATE
+	VkPresentModeKHR *vkPresentModeKHR_array = (VkPresentModeKHR *)malloc(presentModeCount * sizeof(VkPresentModeKHR));
+
+	vkResult = vkGetPhysicalDeviceSurfacePresentModesKHR(vkPhysicalDevice_selected, vkSurfaceKHR, &presentModeCount, vkPresentModeKHR_array);
+	if (vkResult != VK_SUCCESS)
+	{
+		fprintf(gpFile, "%s : vkGetPhysicalDeviceSurfacePresentModesKHR() Second Call Failed : %d !!!\n", __func__, vkResult);
+		return VK_ERROR_INITIALIZATION_FAILED;
+	}
+	else if (presentModeCount == 0)
+	{
+		fprintf(gpFile, "%s : vkGetPhysicalDeviceSurfacePresentModesKHRF() Second Call Failed\n", __func__);
+		return VK_ERROR_INITIALIZATION_FAILED;
+	}
+	else
+	{
+		fprintf(gpFile, "%s : vkGetPhysicalDeviceSurfacePresentModesKHRF() Second Call Succeeded\n", __func__);
+	}
+
+	// DECIDE PRESENTATION MODE
+	for (uint32_t i = 0; i < presentModeCount; i++)
+	{
+		if (vkPresentModeKHR_array[i] == VK_PRESENT_MODE_MAILBOX_KHR)
+		{
+			vkPresentModeKHR = VK_PRESENT_MODE_MAILBOX_KHR;
+			fprintf(gpFile, "%s : VK_PRESENT_MODE_MAILBOX_KHR\n", __func__);
+			break;
+		}
+	}
+
+	if (vkPresentModeKHR != VK_PRESENT_MODE_MAILBOX_KHR)
+	{
+		vkPresentModeKHR = VK_PRESENT_MODE_FIFO_KHR;
+		fprintf(gpFile, "%s : VK_PRESENT_MODE_FIFO_KHR\n", __func__);
+	}
+
+	if (vkPresentModeKHR_array)
+	{
+		free(vkPresentModeKHR_array);
+		vkPresentModeKHR_array = NULL;
+
+		fprintf(gpFile, "%s : vkPresentModeKHR_array free succesfully...\n", __func__);
+	}
+
+	return vkResult;
 }

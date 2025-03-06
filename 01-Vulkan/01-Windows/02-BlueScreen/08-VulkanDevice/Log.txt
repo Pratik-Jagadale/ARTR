@@ -303,7 +303,9 @@ fillDeviceExtensionNames : Vulakn Device Extension Name = VK_GOOGLE_user_type.
 fillDeviceExtensionNames : VK_KHR_SWAPCHAIN_EXTENSION_NAME FOUND.
 ========================================================================================
 fillDeviceExtensionNames : Enabled Vulkan Device Extension NAMES = VK_KHR_swapchain.
-initialize : fillDeviceExtensionNames() IS SUCCESS.
+createVulkanDevice : fillDeviceExtensionNames() Succeeded
+createVulkanDevice : vkCreateDevice() Succeeded
+initialize : createVulkanDevice() IS SUCCESS.
 ========================================================================================
 WinMain : initialize() IS SUCCESS.
 WndProc : LOG FILE SUCCESSFULLY CLOSED.
