@@ -1,0 +1,3 @@
+#include "VK.h"
+
+MYICON ICON p_logo.ico
