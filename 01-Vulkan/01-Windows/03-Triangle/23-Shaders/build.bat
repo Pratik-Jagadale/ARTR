@@ -1,0 +1,15 @@
+cls
+
+del VK.exe
+
+del VK.obj
+
+del VK.res
+
+cl.exe /c /EHsc VK.c /I "C:\VulkanSDK\vulkan\Include"
+
+rc.exe VK.rc
+
+link.exe VK.obj VK.res user32.lib gdi32.lib  /LIBPATH:"C:\VulkanSDK\vulkan\Lib" /SUBSYSTEM:WINDOWS
+
+VK.exe
