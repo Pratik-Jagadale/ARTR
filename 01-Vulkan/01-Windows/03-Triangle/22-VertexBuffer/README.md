@@ -54,3 +54,7 @@ In Unitialize first free the .VkDeviceMemory Member of our global structure usin
 
 
 // VULAKN RECOMANDS/DEMANDS THE SMALL NUMBER NUMBER OF LARGE ALLOCATIONS AND USE THEM REPEATATIVELY FOR DIFFERENT RESOURCES..
+
+## MMIO
+(![MMIO text](https://github.com/Pratik-Jagadale/ARTR/blob/main/01-Vulkan/01-Windows/03-Triangle/22-VertexBuffer/mmio.png))
+
