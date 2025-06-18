@@ -1,0 +1,6 @@
+#
+#  **ReCreation Of Swap Chain**
+#
+
+// JEVHA APPLICATION APAN MINIMIZE KARTO TEVHA SWAPCHAIN CURRPUT HOTE.(specs:Out of DATE)
+
