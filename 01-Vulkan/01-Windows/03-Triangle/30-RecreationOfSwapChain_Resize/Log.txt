@@ -1,0 +1,821 @@
+WinMain => LOG FILE IS SUCCESSFULLY CREATED.
+resize => INITIALIZATION YET NOT COMPLETED.
+===========================================================================================
+fillInstanceExtensionNames => Extension Count : 20.
+fillInstanceExtensionNames => FIRST CALL TO vkEnumerateInstanceExtensionProperties().
+fillInstanceExtensionNames => vkEnumerateInstanceExtensionProperties() IS SUCCEEDED.
+fillInstanceExtensionNames => SECOND CALL TO vkEnumerateInstanceExtensionProperties().
+fillInstanceExtensionNames => vkEnumerateInstanceExtensionProperties() IS SUCCEEDED.
+fillInstanceExtensionNames => Vulakn Instance Extension Name = VK_KHR_device_group_creation.
+fillInstanceExtensionNames => Vulakn Instance Extension Name = VK_KHR_display.
+fillInstanceExtensionNames => Vulakn Instance Extension Name = VK_KHR_external_fence_capabilities.
+fillInstanceExtensionNames => Vulakn Instance Extension Name = VK_KHR_external_memory_capabilities.
+fillInstanceExtensionNames => Vulakn Instance Extension Name = VK_KHR_external_semaphore_capabilities.
+fillInstanceExtensionNames => Vulakn Instance Extension Name = VK_KHR_get_display_properties2.
+fillInstanceExtensionNames => Vulakn Instance Extension Name = VK_KHR_get_physical_device_properties2.
+fillInstanceExtensionNames => Vulakn Instance Extension Name = VK_KHR_get_surface_capabilities2.
+fillInstanceExtensionNames => Vulakn Instance Extension Name = VK_KHR_surface.
+fillInstanceExtensionNames => Vulakn Instance Extension Name = VK_KHR_surface_protected_capabilities.
+fillInstanceExtensionNames => Vulakn Instance Extension Name = VK_KHR_win32_surface.
+fillInstanceExtensionNames => Vulakn Instance Extension Name = VK_EXT_debug_report.
+fillInstanceExtensionNames => Vulakn Instance Extension Name = VK_EXT_debug_utils.
+fillInstanceExtensionNames => Vulakn Instance Extension Name = VK_EXT_direct_mode_display.
+fillInstanceExtensionNames => Vulakn Instance Extension Name = VK_EXT_surface_maintenance1.
+fillInstanceExtensionNames => Vulakn Instance Extension Name = VK_EXT_swapchain_colorspace.
+fillInstanceExtensionNames => Vulakn Instance Extension Name = VK_NV_display_stereo.
+fillInstanceExtensionNames => Vulakn Instance Extension Name = VK_NV_external_memory_capabilities.
+fillInstanceExtensionNames => Vulakn Instance Extension Name = VK_KHR_portability_enumeration.
+fillInstanceExtensionNames => Vulakn Instance Extension Name = VK_LUNARG_direct_driver_loading.
+fillInstanceExtensionNames => VK_KHR_SURFACE_EXTENSION_NAME FOUND.
+fillInstanceExtensionNames => VK_KHR_WIN32_SURFACE_EXTENSION_NAME FOUND.
+fillInstanceExtensionNames => VALIDATION IS ON & VK_EXT_DEBUG_REPORT_EXTENSION_NAME IS ALSO FOUND.
+===========================================================================================
+fillInstanceExtensionNames => Enabled Vulkan Instance Extension NAMES = VK_KHR_surface.
+fillInstanceExtensionNames => Enabled Vulkan Instance Extension NAMES = VK_KHR_win32_surface.
+fillInstanceExtensionNames => Enabled Vulkan Instance Extension NAMES = VK_EXT_debug_report.
+createVulkanInstance => fillInstanceExtensionNames() IS SUCCEEDED.
+fillValidationLayerNames => Validation Layer Count : 7.
+fillValidationLayerNames => FIRST CALL TO vkEnumerateInstanceLayerProperties().
+fillValidationLayerNames => vkEnumerateInstanceLayerProperties() IS SUCCEEDED.
+fillValidationLayerNames => SECOND CALL TO vkEnumerateInstanceLayerProperties().
+fillValidationLayerNames => vkEnumerateInstanceLayerProperties() IS SUCCEEDED.
+fillValidationLayerNames => Vulakn Instance Layer Name = VK_LAYER_NV_optimus.
+fillValidationLayerNames => Vulakn Instance Layer Name = VK_LAYER_OBS_HOOK.
+fillValidationLayerNames => Vulakn Instance Layer Name = VK_LAYER_VALVE_steam_overlay.
+fillValidationLayerNames => Vulakn Instance Layer Name = VK_LAYER_VALVE_steam_fossilize.
+fillValidationLayerNames => Vulakn Instance Layer Name = VK_LAYER_RENDERDOC_Capture.
+fillValidationLayerNames => Vulakn Instance Layer Name = VK_LAYER_EOS_Overlay.
+fillValidationLayerNames => Vulakn Instance Layer Name = VK_LAYER_EOS_Overlay.
+fillValidationLayerNames => VK_LAYER_KHRONOS_validation NOT SUPPORTED.
+createVulkanInstance => fillValidationLayerNames() IS FAILED.
+createVulkanInstance => vkCreateInstance() IS SUCCEDED.
+createValidationCallbackFunction => vkGetInstanceProcAddr SUCCEDED TO GET FUNCTION POINTER FOR vkCreateDebugReportCallbackEXT.
+createValidationCallbackFunction => vkGetInstanceProcAddr SUCCEDED TO GET FUNCTION POINTER FOR vkDestroyDebugReportCallbackEXT.
+createValidationCallbackFunction => vkCreateDebugReportCallbackEXT_fnptr IS SUCCEDED.
+createVulkanInstance => createValidationCallbackFunction() IS SUCCEEDED.
+initialize => createVulkanInstance() IS SUCCEEDED.
+===========================================================================================
+getSupportedSurface => vkCreateWin32SurfaceKHR() IS SUCCEEDED.
+initialize => getSupportedSurface() IS SUCCEEDED.
+===========================================================================================
+getPhysicalDevice => vkEnumeratePhysicalDevices() : 1 IS SUCCEEDED.
+getPhysicalDevice => vkEnumeratePhysicalDevices() : 2 IS SUCCEEDED.
+getPhysicalDevice => SUCCEDED TO FREE isQueueSurfaceSupported_array.
+getPhysicalDevice => SUCCEDED TO FREE vkQueueFamilyProperties_array.
+getPhysicalDevice => getPhysicalDevice IS SUCCEDED TO GET PHYSICAL DEVICE.
+getPhysicalDevice => SELECTED DEVICE SUPPORTS TESSELATION SHADER.
+getPhysicalDevice => SELECTED DEVICE SUPPORTS GEOMETRY SHADER.
+initialize => getPhysicalDevice() IS SUCCEEDED.
+===========================================================================================
+
+============================ Print Vulkan Info ======================
+API VERSION : 1.3.289.
+DEVICE NAME : NVIDIA GeForce RTX 4060 Laptop GPU.
+DEVICE TYPE : DISCRETE GPU (dGPU).
+VENDOR ID : 0x10de.
+DEVICE ID : 0x28e0.
+printVKInfo => vkPhysicalDevice_array DESTROYED.
+initialize => printVKInfo() IS SUCCEEDED.
+===========================================================================================
+fillDeviceExtensionNames => Extension Count : 229.
+fillDeviceExtensionNames => FIRST CALL TO vkEnumerateDeviceExtensionProperties().
+fillDeviceExtensionNames => vkEnumerateDeviceExtensionProperties() IS SUCCEEDED.
+fillDeviceExtensionNames => SECOND CALL TO vkEnumerateDeviceExtensionProperties().
+fillDeviceExtensionNames => vkEnumerateDeviceExtensionProperties() IS SUCCEEDED.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_16bit_storage.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_8bit_storage.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_acceleration_structure.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_bind_memory2.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_buffer_device_address.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_calibrated_timestamps.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_cooperative_matrix.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_copy_commands2.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_create_renderpass2.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_dedicated_allocation.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_deferred_host_operations.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_depth_stencil_resolve.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_descriptor_update_template.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_device_group.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_draw_indirect_count.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_driver_properties.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_dynamic_rendering.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_dynamic_rendering_local_read.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_external_fence.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_external_fence_win32.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_external_memory.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_external_memory_win32.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_external_semaphore.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_external_semaphore_win32.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_format_feature_flags2.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_fragment_shader_barycentric.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_fragment_shading_rate.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_get_memory_requirements2.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_global_priority.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_image_format_list.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_imageless_framebuffer.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_index_type_uint8.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_line_rasterization.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_load_store_op_none.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_maintenance1.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_maintenance2.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_maintenance3.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_maintenance4.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_maintenance5.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_maintenance6.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_maintenance7.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_map_memory2.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_multiview.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_pipeline_executable_properties.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_pipeline_library.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_present_id.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_present_wait.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_push_descriptor.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_ray_query.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_ray_tracing_maintenance1.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_ray_tracing_pipeline.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_ray_tracing_position_fetch.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_relaxed_block_layout.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_sampler_mirror_clamp_to_edge.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_sampler_ycbcr_conversion.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_separate_depth_stencil_layouts.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_shader_atomic_int64.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_shader_clock.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_shader_draw_parameters.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_shader_expect_assume.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_shader_float16_int8.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_shader_float_controls.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_shader_float_controls2.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_shader_integer_dot_product.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_shader_maximal_reconvergence.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_shader_non_semantic_info.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_shader_quad_control.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_shader_relaxed_extended_instruction.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_shader_subgroup_extended_types.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_shader_subgroup_rotate.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_shader_subgroup_uniform_control_flow.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_shader_terminate_invocation.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_spirv_1_4.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_storage_buffer_storage_class.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_swapchain.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_swapchain_mutable_format.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_synchronization2.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_timeline_semaphore.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_uniform_buffer_standard_layout.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_variable_pointers.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_vertex_attribute_divisor.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_video_decode_av1.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_video_decode_h264.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_video_decode_h265.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_video_decode_queue.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_video_encode_h264.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_video_encode_h265.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_video_encode_queue.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_video_maintenance1.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_video_queue.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_vulkan_memory_model.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_win32_keyed_mutex.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_workgroup_memory_explicit_layout.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_KHR_zero_initialize_workgroup_memory.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_4444_formats.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_attachment_feedback_loop_dynamic_state.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_attachment_feedback_loop_layout.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_blend_operation_advanced.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_border_color_swizzle.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_buffer_device_address.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_calibrated_timestamps.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_color_write_enable.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_conditional_rendering.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_conservative_rasterization.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_custom_border_color.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_depth_bias_control.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_depth_clamp_zero_one.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_depth_clip_control.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_depth_clip_enable.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_depth_range_unrestricted.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_descriptor_buffer.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_descriptor_indexing.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_device_fault.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_discard_rectangles.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_dynamic_rendering_unused_attachments.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_extended_dynamic_state.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_extended_dynamic_state2.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_extended_dynamic_state3.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_external_memory_host.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_fragment_shader_interlock.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_full_screen_exclusive.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_global_priority.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_global_priority_query.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_graphics_pipeline_library.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_hdr_metadata.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_host_image_copy.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_host_query_reset.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_image_2d_view_of_3d.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_image_robustness.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_image_sliced_view_of_3d.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_image_view_min_lod.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_index_type_uint8.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_inline_uniform_block.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_legacy_vertex_attributes.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_line_rasterization.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_load_store_op_none.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_memory_budget.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_memory_priority.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_mesh_shader.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_multi_draw.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_mutable_descriptor_type.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_nested_command_buffer.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_non_seamless_cube_map.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_opacity_micromap.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_pageable_device_local_memory.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_pci_bus_info.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_pipeline_creation_cache_control.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_pipeline_creation_feedback.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_pipeline_library_group_handles.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_pipeline_robustness.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_post_depth_coverage.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_primitive_topology_list_restart.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_primitives_generated_query.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_private_data.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_provoking_vertex.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_queue_family_foreign.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_robustness2.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_sample_locations.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_sampler_filter_minmax.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_scalar_block_layout.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_separate_stencil_usage.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_shader_atomic_float.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_shader_demote_to_helper_invocation.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_shader_image_atomic_int64.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_shader_module_identifier.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_shader_object.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_shader_replicated_composites.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_shader_subgroup_ballot.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_shader_subgroup_vote.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_shader_viewport_index_layer.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_subgroup_size_control.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_swapchain_maintenance1.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_texel_buffer_alignment.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_tooling_info.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_transform_feedback.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_vertex_attribute_divisor.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_vertex_input_dynamic_state.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_ycbcr_2plane_444_formats.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_EXT_ycbcr_image_arrays.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_NV_acquire_winrt_display.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_NV_clip_space_w_scaling.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_NV_compute_shader_derivatives.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_NV_cooperative_matrix.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_NV_copy_memory_indirect.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_NV_corner_sampled_image.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_NV_coverage_reduction_mode.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_NV_cuda_kernel_launch.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_NV_dedicated_allocation.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_NV_dedicated_allocation_image_aliasing.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_NV_descriptor_pool_overallocation.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_NV_device_diagnostic_checkpoints.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_NV_device_diagnostics_config.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_NV_device_generated_commands.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_NV_device_generated_commands_compute.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_NV_external_memory.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_NV_external_memory_win32.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_NV_fill_rectangle.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_NV_fragment_coverage_to_color.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_NV_fragment_shader_barycentric.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_NV_fragment_shading_rate_enums.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_NV_framebuffer_mixed_samples.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_NV_geometry_shader_passthrough.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_NV_inherited_viewport_scissor.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_NV_linear_color_attachment.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_NV_low_latency.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_NV_low_latency2.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_NV_memory_decompression.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_NV_mesh_shader.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_NV_optical_flow.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_NV_raw_access_chains.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_NV_ray_tracing.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_NV_ray_tracing_invocation_reorder.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_NV_ray_tracing_motion_blur.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_NV_representative_fragment_test.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_NV_sample_mask_override_coverage.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_NV_scissor_exclusive.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_NV_shader_atomic_float16_vector.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_NV_shader_image_footprint.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_NV_shader_sm_builtins.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_NV_shader_subgroup_partitioned.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_NV_shading_rate_image.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_NV_viewport_array2.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_NV_viewport_swizzle.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_NV_win32_keyed_mutex.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_NVX_binary_import.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_NVX_image_view_handle.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_NVX_multiview_per_view_attributes.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_AMD_buffer_marker.
+fillDeviceExtensionNames => Vulakn Device Extension Name = VK_GOOGLE_user_type.
+fillDeviceExtensionNames => VK_KHR_SWAPCHAIN_EXTENSION_NAME FOUND.
+===========================================================================================
+fillDeviceExtensionNames => Enabled Vulkan Device Extension NAMES = VK_KHR_swapchain.
+createVulkanDevice => fillDeviceExtensionNames() SUCCEEDED
+createVulkanDevice => vkCreateDevice() SUCCEEDED
+initialize => createVulkanDevice() IS SUCCEEDED.
+===========================================================================================
+getDeviceQueue => vkGetDeviceQueue() SUCCEEDED
+getPhysicalDeviceSurfaceFormateAndColorSpace => vkGetPhysicalDeviceSurfaceFormatsKHRF() First Call SUCCEEDED
+getPhysicalDeviceSurfaceFormateAndColorSpace => vkGetPhysicalDeviceSurfaceFormatsKHRF() Second Call SUCCEEDED
+getPhysicalDeviceSurfaceFormateAndColorSpace => vkSurfaceFormatKHR_Array free succesfully...
+initialize => getPhysicalDeviceSurfaceFormateAndColorSpace() IS SUCCEEDED.
+===========================================================================================
+getPhysicalDeviceSurfaceFormatAndColorSpace => Call 1 : vkGetPhysicalDeviceSurfaceFormatsKHR() SUCCEEDED
+getPhysicalDeviceSurfaceFormatAndColorSpace => Call 2 : vkGetPhysicalDeviceSurfaceFormatsKHR() SUCCEEDED
+getPhysicalDeviceSurfaceFormatAndColorSpace => free() SUCCEEDED For vkSurfaceFormatKHR_array
+createSwapchain => getPhysicalDeviceSurfaceFormatAndColorSpace() SUCCEEDED
+createSwapchain => vkGetPhysicalDeviceSurfaceCapabilitiesKHR() SUCCEEDED
+createSwapchain => [If Block] => Swapchain Image Width x Swapchain Image Height = 1264 x 681
+getPhysicalDevicePresentMode => vkGetPhysicalDeviceSurfacePresentModesKHRF() First Call SUCCEEDED
+getPhysicalDevicePresentMode => vkGetPhysicalDeviceSurfacePresentModesKHRF() Second Call SUCCEEDED
+getPhysicalDevicePresentMode => VK_PRESENT_MODE_MAILBOX_KHR
+getPhysicalDevicePresentMode => vkPresentModeKHR_array free succesfully...
+createSwapchain => getPhysicalDevicePresentMode() SUCCEEDED
+createSwapchain => vkCreateSwapchainKHR() SUCCEEDED
+initialize => createSwapchain() IS SUCCEEDED.
+===========================================================================================
+createImagesAndImageViews => vkGetSwapchainImagesKHR() IS SUCCEEDED.[1st Call]
+createImagesAndImageViews => createImagesAndImageViews() gave swapChainImageCount = 2 .
+createImagesAndImageViews => vkGetSwapchainImagesKHR() IS SUCCEEDED.[2nd Call]
+createImagesAndImageViews => vkCreateImageView() IS SUCCEEDED FOR INTERATION 0.
+createImagesAndImageViews => vkCreateImageView() IS SUCCEEDED FOR INTERATION 1.
+initialize => createImagesAndImageViews() IS SUCCEEDED.
+===========================================================================================
+createCommandPool => vkCreateCommandPool() IS SUCCEEDED.
+initialize => createCommandPool() IS SUCCEEDED.
+===========================================================================================
+createCommandBuffers => vkAllocateCommandBuffers() IS SUCCEEDED.
+createCommandBuffers => vkAllocateCommandBuffers() IS SUCCEEDED.
+initialize => createCommandBuffers() IS SUCCEEDED.
+===========================================================================================
+createVertexBuffer => vkCreateBuffer() IS SUCCEEDED.
+createVertexBuffer => Found suitable memory type at index 2
+createVertexBuffer => vkAllocateMemory() IS SUCCEEDED.
+createVertexBuffer => vkBindBufferMemory() IS SUCCEEDED.
+createVertexBuffer => vkMapMemory() IS SUCCEEDED.
+initialize => createVertexBuffer() IS SUCCEEDED.
+===========================================================================================
+createShader => fopen() IS SUCCEEDED TO OPEN shader.vert.spv.
+createShader => fread() IS SUCCEEDED TO READ shader.vert.spv.
+createShader => vkCreateShaderModule() IS SUCCEEDED.
+VERTEX SHADER MODULE IS SUCCEEDED.
+===========================================================================================
+createShader => fopen() IS SUCCEEDED TO OPEN shader.frag.spv.
+createShader => fread() IS SUCCEEDED TO READ shader.frag.spv.
+createShader => vkCreateShaderModule() IS SUCCEEDED.
+FRAGMENT SHADER MODULE IS SUCCEEDED.
+===========================================================================================
+initialize => createShader() IS SUCCEEDED.
+===========================================================================================
+createDescriptorSetLayout => vkCreateDescriptorSetLayout() IS SUCCEEDED.
+initialize => createDescriptorSetLayout() IS SUCCEEDED.
+===========================================================================================
+createPipelineLayout => vkCreatePipelineLayout() IS SUCCEEDED.
+initialize => createPipelineLayout() IS SUCCEEDED.
+===========================================================================================
+createRenderPass => vkCreateRenderPass() IS SUCCEEDED.
+initialize => createRenderPass() IS SUCCEEDED.
+===========================================================================================
+createPipeline => vkCreatePipelineCache() IS SUCCEEDED.
+createPipeline => vkCreateGraphicsPipelines() IS SUCCEEDED.
+initialize => createPipeline() IS SUCCEEDED.
+===========================================================================================
+createFrameBuffer => vkCreateFramebuffer() IS SUCCEEDED FOR INDEX 0.
+createFrameBuffer => vkCreateFramebuffer() IS SUCCEEDED FOR INDEX 1.
+initialize => createFrameBuffer() IS SUCCEEDED.
+===========================================================================================
+createSemaphore => vkCreateSemaphore() IS SUCCEEDED FOR BackBuffer.
+createSemaphore => vkCreateSemaphore() IS SUCCEEDED FOR RenderComplete.
+initialize => createSemaphore() IS SUCCEEDED.
+===========================================================================================
+createFences => vkCreateFence() IS SUCCEEDED FOR INDEX 0.
+createFences => vkCreateFence() IS SUCCEEDED FOR INDEX 1.
+initialize => createFences() IS SUCCEEDED.
+===========================================================================================
+buildCommandBuffers => vkResetCommandBuffer() IS SUCCEEDED FOR INDEX 0.
+buildCommandBuffers => vkBeginCommandBuffer() IS SUCCEEDED FOR INDEX 0.
+buildCommandBuffers => vkEndCommandBuffer() IS SUCCEEDED FOR INDEX 0.
+buildCommandBuffers => vkResetCommandBuffer() IS SUCCEEDED FOR INDEX 1.
+buildCommandBuffers => vkBeginCommandBuffer() IS SUCCEEDED FOR INDEX 1.
+buildCommandBuffers => vkEndCommandBuffer() IS SUCCEEDED FOR INDEX 1.
+initialize => buildCommandBuffers() IS SUCCEEDED.
+===========================================================================================
+						INITIALIZATION COMPLETE SUCCESSFULLY
+===========================================================================================
+WinMain => initialize() IS SUCCEEDED.
+resize => vkDeviceWaitIdle is Done.
+resize => vkCommandBuffer_Array[0] DESTROYED SUCCESSFULLY.
+resize => vkCommandBuffer_Array[1] DESTROYED SUCCESSFULLY.
+resize => vkCommandBuffer_Array FREE SUCCESSFULLY.
+resize => vkSwapChainImageViews_Array[0] DESTROYED SUCCESSFULLY.
+resize => vkSwapChainImageViews_Array[1] DESTROYED SUCCESSFULLY.
+resize => vkSwapChainImageViews_Array FREE SUCCESSFULLY.
+resize => vkDestroySwapchainKHR() Succeeded
+getPhysicalDeviceSurfaceFormatAndColorSpace => Call 1 : vkGetPhysicalDeviceSurfaceFormatsKHR() SUCCEEDED
+getPhysicalDeviceSurfaceFormatAndColorSpace => Call 2 : vkGetPhysicalDeviceSurfaceFormatsKHR() SUCCEEDED
+getPhysicalDeviceSurfaceFormatAndColorSpace => free() SUCCEEDED For vkSurfaceFormatKHR_array
+createSwapchain => getPhysicalDeviceSurfaceFormatAndColorSpace() SUCCEEDED
+createSwapchain => vkGetPhysicalDeviceSurfaceCapabilitiesKHR() SUCCEEDED
+createSwapchain => [If Block] => Swapchain Image Width x Swapchain Image Height = 0 x 0
+getPhysicalDevicePresentMode => vkGetPhysicalDeviceSurfacePresentModesKHRF() First Call SUCCEEDED
+getPhysicalDevicePresentMode => vkGetPhysicalDeviceSurfacePresentModesKHRF() Second Call SUCCEEDED
+getPhysicalDevicePresentMode => VK_PRESENT_MODE_MAILBOX_KHR
+getPhysicalDevicePresentMode => vkPresentModeKHR_array free succesfully...
+createSwapchain => getPhysicalDevicePresentMode() SUCCEEDED
+createSwapchain => vkCreateSwapchainKHR() SUCCEEDED
+createImagesAndImageViews => vkGetSwapchainImagesKHR() IS SUCCEEDED.[1st Call]
+createImagesAndImageViews => createImagesAndImageViews() gave swapChainImageCount = 2 .
+createImagesAndImageViews => vkGetSwapchainImagesKHR() IS SUCCEEDED.[2nd Call]
+createImagesAndImageViews => vkCreateImageView() IS SUCCEEDED FOR INTERATION 0.
+createImagesAndImageViews => vkCreateImageView() IS SUCCEEDED FOR INTERATION 1.
+createCommandBuffers => vkAllocateCommandBuffers() IS SUCCEEDED.
+createCommandBuffers => vkAllocateCommandBuffers() IS SUCCEEDED.
+createPipelineLayout => vkCreatePipelineLayout() IS SUCCEEDED.
+createPipeline => vkCreatePipelineCache() IS SUCCEEDED.
+createPipeline => vkCreateGraphicsPipelines() IS SUCCEEDED.
+createRenderPass => vkCreateRenderPass() IS SUCCEEDED.
+createFrameBuffer => vkCreateFramebuffer() IS SUCCEEDED FOR INDEX 0.
+createFrameBuffer => vkCreateFramebuffer() IS SUCCEEDED FOR INDEX 1.
+buildCommandBuffers => vkResetCommandBuffer() IS SUCCEEDED FOR INDEX 0.
+buildCommandBuffers => vkBeginCommandBuffer() IS SUCCEEDED FOR INDEX 0.
+buildCommandBuffers => vkEndCommandBuffer() IS SUCCEEDED FOR INDEX 0.
+buildCommandBuffers => vkResetCommandBuffer() IS SUCCEEDED FOR INDEX 1.
+buildCommandBuffers => vkBeginCommandBuffer() IS SUCCEEDED FOR INDEX 1.
+buildCommandBuffers => vkEndCommandBuffer() IS SUCCEEDED FOR INDEX 1.
+resize => vkDeviceWaitIdle is Done.
+resize => vkCommandBuffer_Array[0] DESTROYED SUCCESSFULLY.
+resize => vkCommandBuffer_Array[1] DESTROYED SUCCESSFULLY.
+resize => vkCommandBuffer_Array FREE SUCCESSFULLY.
+resize => vkSwapChainImageViews_Array[0] DESTROYED SUCCESSFULLY.
+resize => vkSwapChainImageViews_Array[1] DESTROYED SUCCESSFULLY.
+resize => vkSwapChainImageViews_Array FREE SUCCESSFULLY.
+resize => vkDestroySwapchainKHR() Succeeded
+getPhysicalDeviceSurfaceFormatAndColorSpace => Call 1 : vkGetPhysicalDeviceSurfaceFormatsKHR() SUCCEEDED
+getPhysicalDeviceSurfaceFormatAndColorSpace => Call 2 : vkGetPhysicalDeviceSurfaceFormatsKHR() SUCCEEDED
+getPhysicalDeviceSurfaceFormatAndColorSpace => free() SUCCEEDED For vkSurfaceFormatKHR_array
+createSwapchain => getPhysicalDeviceSurfaceFormatAndColorSpace() SUCCEEDED
+createSwapchain => vkGetPhysicalDeviceSurfaceCapabilitiesKHR() SUCCEEDED
+createSwapchain => [If Block] => Swapchain Image Width x Swapchain Image Height = 1264 x 681
+getPhysicalDevicePresentMode => vkGetPhysicalDeviceSurfacePresentModesKHRF() First Call SUCCEEDED
+getPhysicalDevicePresentMode => vkGetPhysicalDeviceSurfacePresentModesKHRF() Second Call SUCCEEDED
+getPhysicalDevicePresentMode => VK_PRESENT_MODE_MAILBOX_KHR
+getPhysicalDevicePresentMode => vkPresentModeKHR_array free succesfully...
+createSwapchain => getPhysicalDevicePresentMode() SUCCEEDED
+createSwapchain => vkCreateSwapchainKHR() SUCCEEDED
+createImagesAndImageViews => vkGetSwapchainImagesKHR() IS SUCCEEDED.[1st Call]
+createImagesAndImageViews => createImagesAndImageViews() gave swapChainImageCount = 2 .
+createImagesAndImageViews => vkGetSwapchainImagesKHR() IS SUCCEEDED.[2nd Call]
+createImagesAndImageViews => vkCreateImageView() IS SUCCEEDED FOR INTERATION 0.
+createImagesAndImageViews => vkCreateImageView() IS SUCCEEDED FOR INTERATION 1.
+createCommandBuffers => vkAllocateCommandBuffers() IS SUCCEEDED.
+createCommandBuffers => vkAllocateCommandBuffers() IS SUCCEEDED.
+createPipelineLayout => vkCreatePipelineLayout() IS SUCCEEDED.
+createPipeline => vkCreatePipelineCache() IS SUCCEEDED.
+createPipeline => vkCreateGraphicsPipelines() IS SUCCEEDED.
+createRenderPass => vkCreateRenderPass() IS SUCCEEDED.
+createFrameBuffer => vkCreateFramebuffer() IS SUCCEEDED FOR INDEX 0.
+createFrameBuffer => vkCreateFramebuffer() IS SUCCEEDED FOR INDEX 1.
+buildCommandBuffers => vkResetCommandBuffer() IS SUCCEEDED FOR INDEX 0.
+buildCommandBuffers => vkBeginCommandBuffer() IS SUCCEEDED FOR INDEX 0.
+buildCommandBuffers => vkEndCommandBuffer() IS SUCCEEDED FOR INDEX 0.
+buildCommandBuffers => vkResetCommandBuffer() IS SUCCEEDED FOR INDEX 1.
+buildCommandBuffers => vkBeginCommandBuffer() IS SUCCEEDED FOR INDEX 1.
+buildCommandBuffers => vkEndCommandBuffer() IS SUCCEEDED FOR INDEX 1.
+resize => vkDeviceWaitIdle is Done.
+resize => vkCommandBuffer_Array[0] DESTROYED SUCCESSFULLY.
+resize => vkCommandBuffer_Array[1] DESTROYED SUCCESSFULLY.
+resize => vkCommandBuffer_Array FREE SUCCESSFULLY.
+resize => vkSwapChainImageViews_Array[0] DESTROYED SUCCESSFULLY.
+resize => vkSwapChainImageViews_Array[1] DESTROYED SUCCESSFULLY.
+resize => vkSwapChainImageViews_Array FREE SUCCESSFULLY.
+resize => vkDestroySwapchainKHR() Succeeded
+getPhysicalDeviceSurfaceFormatAndColorSpace => Call 1 : vkGetPhysicalDeviceSurfaceFormatsKHR() SUCCEEDED
+getPhysicalDeviceSurfaceFormatAndColorSpace => Call 2 : vkGetPhysicalDeviceSurfaceFormatsKHR() SUCCEEDED
+getPhysicalDeviceSurfaceFormatAndColorSpace => free() SUCCEEDED For vkSurfaceFormatKHR_array
+createSwapchain => getPhysicalDeviceSurfaceFormatAndColorSpace() SUCCEEDED
+createSwapchain => vkGetPhysicalDeviceSurfaceCapabilitiesKHR() SUCCEEDED
+createSwapchain => [If Block] => Swapchain Image Width x Swapchain Image Height = 2560 x 1440
+getPhysicalDevicePresentMode => vkGetPhysicalDeviceSurfacePresentModesKHRF() First Call SUCCEEDED
+getPhysicalDevicePresentMode => vkGetPhysicalDeviceSurfacePresentModesKHRF() Second Call SUCCEEDED
+getPhysicalDevicePresentMode => VK_PRESENT_MODE_MAILBOX_KHR
+getPhysicalDevicePresentMode => vkPresentModeKHR_array free succesfully...
+createSwapchain => getPhysicalDevicePresentMode() SUCCEEDED
+createSwapchain => vkCreateSwapchainKHR() SUCCEEDED
+createImagesAndImageViews => vkGetSwapchainImagesKHR() IS SUCCEEDED.[1st Call]
+createImagesAndImageViews => createImagesAndImageViews() gave swapChainImageCount = 2 .
+createImagesAndImageViews => vkGetSwapchainImagesKHR() IS SUCCEEDED.[2nd Call]
+createImagesAndImageViews => vkCreateImageView() IS SUCCEEDED FOR INTERATION 0.
+createImagesAndImageViews => vkCreateImageView() IS SUCCEEDED FOR INTERATION 1.
+createCommandBuffers => vkAllocateCommandBuffers() IS SUCCEEDED.
+createCommandBuffers => vkAllocateCommandBuffers() IS SUCCEEDED.
+createPipelineLayout => vkCreatePipelineLayout() IS SUCCEEDED.
+createPipeline => vkCreatePipelineCache() IS SUCCEEDED.
+createPipeline => vkCreateGraphicsPipelines() IS SUCCEEDED.
+createRenderPass => vkCreateRenderPass() IS SUCCEEDED.
+createFrameBuffer => vkCreateFramebuffer() IS SUCCEEDED FOR INDEX 0.
+createFrameBuffer => vkCreateFramebuffer() IS SUCCEEDED FOR INDEX 1.
+buildCommandBuffers => vkResetCommandBuffer() IS SUCCEEDED FOR INDEX 0.
+buildCommandBuffers => vkBeginCommandBuffer() IS SUCCEEDED FOR INDEX 0.
+buildCommandBuffers => vkEndCommandBuffer() IS SUCCEEDED FOR INDEX 0.
+buildCommandBuffers => vkResetCommandBuffer() IS SUCCEEDED FOR INDEX 1.
+buildCommandBuffers => vkBeginCommandBuffer() IS SUCCEEDED FOR INDEX 1.
+buildCommandBuffers => vkEndCommandBuffer() IS SUCCEEDED FOR INDEX 1.
+resize => vkDeviceWaitIdle is Done.
+resize => vkCommandBuffer_Array[0] DESTROYED SUCCESSFULLY.
+resize => vkCommandBuffer_Array[1] DESTROYED SUCCESSFULLY.
+resize => vkCommandBuffer_Array FREE SUCCESSFULLY.
+resize => vkSwapChainImageViews_Array[0] DESTROYED SUCCESSFULLY.
+resize => vkSwapChainImageViews_Array[1] DESTROYED SUCCESSFULLY.
+resize => vkSwapChainImageViews_Array FREE SUCCESSFULLY.
+resize => vkDestroySwapchainKHR() Succeeded
+getPhysicalDeviceSurfaceFormatAndColorSpace => Call 1 : vkGetPhysicalDeviceSurfaceFormatsKHR() SUCCEEDED
+getPhysicalDeviceSurfaceFormatAndColorSpace => Call 2 : vkGetPhysicalDeviceSurfaceFormatsKHR() SUCCEEDED
+getPhysicalDeviceSurfaceFormatAndColorSpace => free() SUCCEEDED For vkSurfaceFormatKHR_array
+createSwapchain => getPhysicalDeviceSurfaceFormatAndColorSpace() SUCCEEDED
+createSwapchain => vkGetPhysicalDeviceSurfaceCapabilitiesKHR() SUCCEEDED
+createSwapchain => [If Block] => Swapchain Image Width x Swapchain Image Height = 1264 x 681
+getPhysicalDevicePresentMode => vkGetPhysicalDeviceSurfacePresentModesKHRF() First Call SUCCEEDED
+getPhysicalDevicePresentMode => vkGetPhysicalDeviceSurfacePresentModesKHRF() Second Call SUCCEEDED
+getPhysicalDevicePresentMode => VK_PRESENT_MODE_MAILBOX_KHR
+getPhysicalDevicePresentMode => vkPresentModeKHR_array free succesfully...
+createSwapchain => getPhysicalDevicePresentMode() SUCCEEDED
+createSwapchain => vkCreateSwapchainKHR() SUCCEEDED
+createImagesAndImageViews => vkGetSwapchainImagesKHR() IS SUCCEEDED.[1st Call]
+createImagesAndImageViews => createImagesAndImageViews() gave swapChainImageCount = 2 .
+createImagesAndImageViews => vkGetSwapchainImagesKHR() IS SUCCEEDED.[2nd Call]
+createImagesAndImageViews => vkCreateImageView() IS SUCCEEDED FOR INTERATION 0.
+createImagesAndImageViews => vkCreateImageView() IS SUCCEEDED FOR INTERATION 1.
+createCommandBuffers => vkAllocateCommandBuffers() IS SUCCEEDED.
+createCommandBuffers => vkAllocateCommandBuffers() IS SUCCEEDED.
+createPipelineLayout => vkCreatePipelineLayout() IS SUCCEEDED.
+createPipeline => vkCreatePipelineCache() IS SUCCEEDED.
+createPipeline => vkCreateGraphicsPipelines() IS SUCCEEDED.
+createRenderPass => vkCreateRenderPass() IS SUCCEEDED.
+createFrameBuffer => vkCreateFramebuffer() IS SUCCEEDED FOR INDEX 0.
+createFrameBuffer => vkCreateFramebuffer() IS SUCCEEDED FOR INDEX 1.
+buildCommandBuffers => vkResetCommandBuffer() IS SUCCEEDED FOR INDEX 0.
+buildCommandBuffers => vkBeginCommandBuffer() IS SUCCEEDED FOR INDEX 0.
+buildCommandBuffers => vkEndCommandBuffer() IS SUCCEEDED FOR INDEX 0.
+buildCommandBuffers => vkResetCommandBuffer() IS SUCCEEDED FOR INDEX 1.
+buildCommandBuffers => vkBeginCommandBuffer() IS SUCCEEDED FOR INDEX 1.
+buildCommandBuffers => vkEndCommandBuffer() IS SUCCEEDED FOR INDEX 1.
+resize => vkDeviceWaitIdle is Done.
+resize => vkCommandBuffer_Array[0] DESTROYED SUCCESSFULLY.
+resize => vkCommandBuffer_Array[1] DESTROYED SUCCESSFULLY.
+resize => vkCommandBuffer_Array FREE SUCCESSFULLY.
+resize => vkSwapChainImageViews_Array[0] DESTROYED SUCCESSFULLY.
+resize => vkSwapChainImageViews_Array[1] DESTROYED SUCCESSFULLY.
+resize => vkSwapChainImageViews_Array FREE SUCCESSFULLY.
+resize => vkDestroySwapchainKHR() Succeeded
+getPhysicalDeviceSurfaceFormatAndColorSpace => Call 1 : vkGetPhysicalDeviceSurfaceFormatsKHR() SUCCEEDED
+getPhysicalDeviceSurfaceFormatAndColorSpace => Call 2 : vkGetPhysicalDeviceSurfaceFormatsKHR() SUCCEEDED
+getPhysicalDeviceSurfaceFormatAndColorSpace => free() SUCCEEDED For vkSurfaceFormatKHR_array
+createSwapchain => getPhysicalDeviceSurfaceFormatAndColorSpace() SUCCEEDED
+createSwapchain => vkGetPhysicalDeviceSurfaceCapabilitiesKHR() SUCCEEDED
+createSwapchain => [If Block] => Swapchain Image Width x Swapchain Image Height = 1280 x 720
+getPhysicalDevicePresentMode => vkGetPhysicalDeviceSurfacePresentModesKHRF() First Call SUCCEEDED
+getPhysicalDevicePresentMode => vkGetPhysicalDeviceSurfacePresentModesKHRF() Second Call SUCCEEDED
+getPhysicalDevicePresentMode => VK_PRESENT_MODE_MAILBOX_KHR
+getPhysicalDevicePresentMode => vkPresentModeKHR_array free succesfully...
+createSwapchain => getPhysicalDevicePresentMode() SUCCEEDED
+createSwapchain => vkCreateSwapchainKHR() SUCCEEDED
+createImagesAndImageViews => vkGetSwapchainImagesKHR() IS SUCCEEDED.[1st Call]
+createImagesAndImageViews => createImagesAndImageViews() gave swapChainImageCount = 2 .
+createImagesAndImageViews => vkGetSwapchainImagesKHR() IS SUCCEEDED.[2nd Call]
+createImagesAndImageViews => vkCreateImageView() IS SUCCEEDED FOR INTERATION 0.
+createImagesAndImageViews => vkCreateImageView() IS SUCCEEDED FOR INTERATION 1.
+createCommandBuffers => vkAllocateCommandBuffers() IS SUCCEEDED.
+createCommandBuffers => vkAllocateCommandBuffers() IS SUCCEEDED.
+createPipelineLayout => vkCreatePipelineLayout() IS SUCCEEDED.
+createPipeline => vkCreatePipelineCache() IS SUCCEEDED.
+createPipeline => vkCreateGraphicsPipelines() IS SUCCEEDED.
+createRenderPass => vkCreateRenderPass() IS SUCCEEDED.
+createFrameBuffer => vkCreateFramebuffer() IS SUCCEEDED FOR INDEX 0.
+createFrameBuffer => vkCreateFramebuffer() IS SUCCEEDED FOR INDEX 1.
+buildCommandBuffers => vkResetCommandBuffer() IS SUCCEEDED FOR INDEX 0.
+buildCommandBuffers => vkBeginCommandBuffer() IS SUCCEEDED FOR INDEX 0.
+buildCommandBuffers => vkEndCommandBuffer() IS SUCCEEDED FOR INDEX 0.
+buildCommandBuffers => vkResetCommandBuffer() IS SUCCEEDED FOR INDEX 1.
+buildCommandBuffers => vkBeginCommandBuffer() IS SUCCEEDED FOR INDEX 1.
+buildCommandBuffers => vkEndCommandBuffer() IS SUCCEEDED FOR INDEX 1.
+resize => vkDeviceWaitIdle is Done.
+resize => vkCommandBuffer_Array[0] DESTROYED SUCCESSFULLY.
+resize => vkCommandBuffer_Array[1] DESTROYED SUCCESSFULLY.
+resize => vkCommandBuffer_Array FREE SUCCESSFULLY.
+resize => vkSwapChainImageViews_Array[0] DESTROYED SUCCESSFULLY.
+resize => vkSwapChainImageViews_Array[1] DESTROYED SUCCESSFULLY.
+resize => vkSwapChainImageViews_Array FREE SUCCESSFULLY.
+resize => vkDestroySwapchainKHR() Succeeded
+getPhysicalDeviceSurfaceFormatAndColorSpace => Call 1 : vkGetPhysicalDeviceSurfaceFormatsKHR() SUCCEEDED
+getPhysicalDeviceSurfaceFormatAndColorSpace => Call 2 : vkGetPhysicalDeviceSurfaceFormatsKHR() SUCCEEDED
+getPhysicalDeviceSurfaceFormatAndColorSpace => free() SUCCEEDED For vkSurfaceFormatKHR_array
+createSwapchain => getPhysicalDeviceSurfaceFormatAndColorSpace() SUCCEEDED
+createSwapchain => vkGetPhysicalDeviceSurfaceCapabilitiesKHR() SUCCEEDED
+createSwapchain => [If Block] => Swapchain Image Width x Swapchain Image Height = 2560 x 1440
+getPhysicalDevicePresentMode => vkGetPhysicalDeviceSurfacePresentModesKHRF() First Call SUCCEEDED
+getPhysicalDevicePresentMode => vkGetPhysicalDeviceSurfacePresentModesKHRF() Second Call SUCCEEDED
+getPhysicalDevicePresentMode => VK_PRESENT_MODE_MAILBOX_KHR
+getPhysicalDevicePresentMode => vkPresentModeKHR_array free succesfully...
+createSwapchain => getPhysicalDevicePresentMode() SUCCEEDED
+createSwapchain => vkCreateSwapchainKHR() SUCCEEDED
+createImagesAndImageViews => vkGetSwapchainImagesKHR() IS SUCCEEDED.[1st Call]
+createImagesAndImageViews => createImagesAndImageViews() gave swapChainImageCount = 2 .
+createImagesAndImageViews => vkGetSwapchainImagesKHR() IS SUCCEEDED.[2nd Call]
+createImagesAndImageViews => vkCreateImageView() IS SUCCEEDED FOR INTERATION 0.
+createImagesAndImageViews => vkCreateImageView() IS SUCCEEDED FOR INTERATION 1.
+createCommandBuffers => vkAllocateCommandBuffers() IS SUCCEEDED.
+createCommandBuffers => vkAllocateCommandBuffers() IS SUCCEEDED.
+createPipelineLayout => vkCreatePipelineLayout() IS SUCCEEDED.
+createPipeline => vkCreatePipelineCache() IS SUCCEEDED.
+createPipeline => vkCreateGraphicsPipelines() IS SUCCEEDED.
+createRenderPass => vkCreateRenderPass() IS SUCCEEDED.
+createFrameBuffer => vkCreateFramebuffer() IS SUCCEEDED FOR INDEX 0.
+createFrameBuffer => vkCreateFramebuffer() IS SUCCEEDED FOR INDEX 1.
+buildCommandBuffers => vkResetCommandBuffer() IS SUCCEEDED FOR INDEX 0.
+buildCommandBuffers => vkBeginCommandBuffer() IS SUCCEEDED FOR INDEX 0.
+buildCommandBuffers => vkEndCommandBuffer() IS SUCCEEDED FOR INDEX 0.
+buildCommandBuffers => vkResetCommandBuffer() IS SUCCEEDED FOR INDEX 1.
+buildCommandBuffers => vkBeginCommandBuffer() IS SUCCEEDED FOR INDEX 1.
+buildCommandBuffers => vkEndCommandBuffer() IS SUCCEEDED FOR INDEX 1.
+resize => vkDeviceWaitIdle is Done.
+resize => vkCommandBuffer_Array[0] DESTROYED SUCCESSFULLY.
+resize => vkCommandBuffer_Array[1] DESTROYED SUCCESSFULLY.
+resize => vkCommandBuffer_Array FREE SUCCESSFULLY.
+resize => vkSwapChainImageViews_Array[0] DESTROYED SUCCESSFULLY.
+resize => vkSwapChainImageViews_Array[1] DESTROYED SUCCESSFULLY.
+resize => vkSwapChainImageViews_Array FREE SUCCESSFULLY.
+resize => vkDestroySwapchainKHR() Succeeded
+getPhysicalDeviceSurfaceFormatAndColorSpace => Call 1 : vkGetPhysicalDeviceSurfaceFormatsKHR() SUCCEEDED
+getPhysicalDeviceSurfaceFormatAndColorSpace => Call 2 : vkGetPhysicalDeviceSurfaceFormatsKHR() SUCCEEDED
+getPhysicalDeviceSurfaceFormatAndColorSpace => free() SUCCEEDED For vkSurfaceFormatKHR_array
+createSwapchain => getPhysicalDeviceSurfaceFormatAndColorSpace() SUCCEEDED
+createSwapchain => vkGetPhysicalDeviceSurfaceCapabilitiesKHR() SUCCEEDED
+createSwapchain => [If Block] => Swapchain Image Width x Swapchain Image Height = 1264 x 681
+getPhysicalDevicePresentMode => vkGetPhysicalDeviceSurfacePresentModesKHRF() First Call SUCCEEDED
+getPhysicalDevicePresentMode => vkGetPhysicalDeviceSurfacePresentModesKHRF() Second Call SUCCEEDED
+getPhysicalDevicePresentMode => VK_PRESENT_MODE_MAILBOX_KHR
+getPhysicalDevicePresentMode => vkPresentModeKHR_array free succesfully...
+createSwapchain => getPhysicalDevicePresentMode() SUCCEEDED
+createSwapchain => vkCreateSwapchainKHR() SUCCEEDED
+createImagesAndImageViews => vkGetSwapchainImagesKHR() IS SUCCEEDED.[1st Call]
+createImagesAndImageViews => createImagesAndImageViews() gave swapChainImageCount = 2 .
+createImagesAndImageViews => vkGetSwapchainImagesKHR() IS SUCCEEDED.[2nd Call]
+createImagesAndImageViews => vkCreateImageView() IS SUCCEEDED FOR INTERATION 0.
+createImagesAndImageViews => vkCreateImageView() IS SUCCEEDED FOR INTERATION 1.
+createCommandBuffers => vkAllocateCommandBuffers() IS SUCCEEDED.
+createCommandBuffers => vkAllocateCommandBuffers() IS SUCCEEDED.
+createPipelineLayout => vkCreatePipelineLayout() IS SUCCEEDED.
+createPipeline => vkCreatePipelineCache() IS SUCCEEDED.
+createPipeline => vkCreateGraphicsPipelines() IS SUCCEEDED.
+createRenderPass => vkCreateRenderPass() IS SUCCEEDED.
+createFrameBuffer => vkCreateFramebuffer() IS SUCCEEDED FOR INDEX 0.
+createFrameBuffer => vkCreateFramebuffer() IS SUCCEEDED FOR INDEX 1.
+buildCommandBuffers => vkResetCommandBuffer() IS SUCCEEDED FOR INDEX 0.
+buildCommandBuffers => vkBeginCommandBuffer() IS SUCCEEDED FOR INDEX 0.
+buildCommandBuffers => vkEndCommandBuffer() IS SUCCEEDED FOR INDEX 0.
+buildCommandBuffers => vkResetCommandBuffer() IS SUCCEEDED FOR INDEX 1.
+buildCommandBuffers => vkBeginCommandBuffer() IS SUCCEEDED FOR INDEX 1.
+buildCommandBuffers => vkEndCommandBuffer() IS SUCCEEDED FOR INDEX 1.
+resize => vkDeviceWaitIdle is Done.
+resize => vkCommandBuffer_Array[0] DESTROYED SUCCESSFULLY.
+resize => vkCommandBuffer_Array[1] DESTROYED SUCCESSFULLY.
+resize => vkCommandBuffer_Array FREE SUCCESSFULLY.
+resize => vkSwapChainImageViews_Array[0] DESTROYED SUCCESSFULLY.
+resize => vkSwapChainImageViews_Array[1] DESTROYED SUCCESSFULLY.
+resize => vkSwapChainImageViews_Array FREE SUCCESSFULLY.
+resize => vkDestroySwapchainKHR() Succeeded
+getPhysicalDeviceSurfaceFormatAndColorSpace => Call 1 : vkGetPhysicalDeviceSurfaceFormatsKHR() SUCCEEDED
+getPhysicalDeviceSurfaceFormatAndColorSpace => Call 2 : vkGetPhysicalDeviceSurfaceFormatsKHR() SUCCEEDED
+getPhysicalDeviceSurfaceFormatAndColorSpace => free() SUCCEEDED For vkSurfaceFormatKHR_array
+createSwapchain => getPhysicalDeviceSurfaceFormatAndColorSpace() SUCCEEDED
+createSwapchain => vkGetPhysicalDeviceSurfaceCapabilitiesKHR() SUCCEEDED
+createSwapchain => [If Block] => Swapchain Image Width x Swapchain Image Height = 1280 x 720
+getPhysicalDevicePresentMode => vkGetPhysicalDeviceSurfacePresentModesKHRF() First Call SUCCEEDED
+getPhysicalDevicePresentMode => vkGetPhysicalDeviceSurfacePresentModesKHRF() Second Call SUCCEEDED
+getPhysicalDevicePresentMode => VK_PRESENT_MODE_MAILBOX_KHR
+getPhysicalDevicePresentMode => vkPresentModeKHR_array free succesfully...
+createSwapchain => getPhysicalDevicePresentMode() SUCCEEDED
+createSwapchain => vkCreateSwapchainKHR() SUCCEEDED
+createImagesAndImageViews => vkGetSwapchainImagesKHR() IS SUCCEEDED.[1st Call]
+createImagesAndImageViews => createImagesAndImageViews() gave swapChainImageCount = 2 .
+createImagesAndImageViews => vkGetSwapchainImagesKHR() IS SUCCEEDED.[2nd Call]
+createImagesAndImageViews => vkCreateImageView() IS SUCCEEDED FOR INTERATION 0.
+createImagesAndImageViews => vkCreateImageView() IS SUCCEEDED FOR INTERATION 1.
+createCommandBuffers => vkAllocateCommandBuffers() IS SUCCEEDED.
+createCommandBuffers => vkAllocateCommandBuffers() IS SUCCEEDED.
+createPipelineLayout => vkCreatePipelineLayout() IS SUCCEEDED.
+createPipeline => vkCreatePipelineCache() IS SUCCEEDED.
+createPipeline => vkCreateGraphicsPipelines() IS SUCCEEDED.
+createRenderPass => vkCreateRenderPass() IS SUCCEEDED.
+createFrameBuffer => vkCreateFramebuffer() IS SUCCEEDED FOR INDEX 0.
+createFrameBuffer => vkCreateFramebuffer() IS SUCCEEDED FOR INDEX 1.
+buildCommandBuffers => vkResetCommandBuffer() IS SUCCEEDED FOR INDEX 0.
+buildCommandBuffers => vkBeginCommandBuffer() IS SUCCEEDED FOR INDEX 0.
+buildCommandBuffers => vkEndCommandBuffer() IS SUCCEEDED FOR INDEX 0.
+buildCommandBuffers => vkResetCommandBuffer() IS SUCCEEDED FOR INDEX 1.
+buildCommandBuffers => vkBeginCommandBuffer() IS SUCCEEDED FOR INDEX 1.
+buildCommandBuffers => vkEndCommandBuffer() IS SUCCEEDED FOR INDEX 1.
+resize => vkDeviceWaitIdle is Done.
+resize => vkCommandBuffer_Array[0] DESTROYED SUCCESSFULLY.
+resize => vkCommandBuffer_Array[1] DESTROYED SUCCESSFULLY.
+resize => vkCommandBuffer_Array FREE SUCCESSFULLY.
+resize => vkSwapChainImageViews_Array[0] DESTROYED SUCCESSFULLY.
+resize => vkSwapChainImageViews_Array[1] DESTROYED SUCCESSFULLY.
+resize => vkSwapChainImageViews_Array FREE SUCCESSFULLY.
+resize => vkDestroySwapchainKHR() Succeeded
+getPhysicalDeviceSurfaceFormatAndColorSpace => Call 1 : vkGetPhysicalDeviceSurfaceFormatsKHR() SUCCEEDED
+getPhysicalDeviceSurfaceFormatAndColorSpace => Call 2 : vkGetPhysicalDeviceSurfaceFormatsKHR() SUCCEEDED
+getPhysicalDeviceSurfaceFormatAndColorSpace => free() SUCCEEDED For vkSurfaceFormatKHR_array
+createSwapchain => getPhysicalDeviceSurfaceFormatAndColorSpace() SUCCEEDED
+createSwapchain => vkGetPhysicalDeviceSurfaceCapabilitiesKHR() SUCCEEDED
+createSwapchain => [If Block] => Swapchain Image Width x Swapchain Image Height = 2560 x 1440
+getPhysicalDevicePresentMode => vkGetPhysicalDeviceSurfacePresentModesKHRF() First Call SUCCEEDED
+getPhysicalDevicePresentMode => vkGetPhysicalDeviceSurfacePresentModesKHRF() Second Call SUCCEEDED
+getPhysicalDevicePresentMode => VK_PRESENT_MODE_MAILBOX_KHR
+getPhysicalDevicePresentMode => vkPresentModeKHR_array free succesfully...
+createSwapchain => getPhysicalDevicePresentMode() SUCCEEDED
+createSwapchain => vkCreateSwapchainKHR() SUCCEEDED
+createImagesAndImageViews => vkGetSwapchainImagesKHR() IS SUCCEEDED.[1st Call]
+createImagesAndImageViews => createImagesAndImageViews() gave swapChainImageCount = 2 .
+createImagesAndImageViews => vkGetSwapchainImagesKHR() IS SUCCEEDED.[2nd Call]
+createImagesAndImageViews => vkCreateImageView() IS SUCCEEDED FOR INTERATION 0.
+createImagesAndImageViews => vkCreateImageView() IS SUCCEEDED FOR INTERATION 1.
+createCommandBuffers => vkAllocateCommandBuffers() IS SUCCEEDED.
+createCommandBuffers => vkAllocateCommandBuffers() IS SUCCEEDED.
+createPipelineLayout => vkCreatePipelineLayout() IS SUCCEEDED.
+createPipeline => vkCreatePipelineCache() IS SUCCEEDED.
+createPipeline => vkCreateGraphicsPipelines() IS SUCCEEDED.
+createRenderPass => vkCreateRenderPass() IS SUCCEEDED.
+createFrameBuffer => vkCreateFramebuffer() IS SUCCEEDED FOR INDEX 0.
+createFrameBuffer => vkCreateFramebuffer() IS SUCCEEDED FOR INDEX 1.
+buildCommandBuffers => vkResetCommandBuffer() IS SUCCEEDED FOR INDEX 0.
+buildCommandBuffers => vkBeginCommandBuffer() IS SUCCEEDED FOR INDEX 0.
+buildCommandBuffers => vkEndCommandBuffer() IS SUCCEEDED FOR INDEX 0.
+buildCommandBuffers => vkResetCommandBuffer() IS SUCCEEDED FOR INDEX 1.
+buildCommandBuffers => vkBeginCommandBuffer() IS SUCCEEDED FOR INDEX 1.
+buildCommandBuffers => vkEndCommandBuffer() IS SUCCEEDED FOR INDEX 1.
+resize => vkDeviceWaitIdle is Done.
+resize => vkCommandBuffer_Array[0] DESTROYED SUCCESSFULLY.
+resize => vkCommandBuffer_Array[1] DESTROYED SUCCESSFULLY.
+resize => vkCommandBuffer_Array FREE SUCCESSFULLY.
+resize => vkSwapChainImageViews_Array[0] DESTROYED SUCCESSFULLY.
+resize => vkSwapChainImageViews_Array[1] DESTROYED SUCCESSFULLY.
+resize => vkSwapChainImageViews_Array FREE SUCCESSFULLY.
+resize => vkDestroySwapchainKHR() Succeeded
+getPhysicalDeviceSurfaceFormatAndColorSpace => Call 1 : vkGetPhysicalDeviceSurfaceFormatsKHR() SUCCEEDED
+getPhysicalDeviceSurfaceFormatAndColorSpace => Call 2 : vkGetPhysicalDeviceSurfaceFormatsKHR() SUCCEEDED
+getPhysicalDeviceSurfaceFormatAndColorSpace => free() SUCCEEDED For vkSurfaceFormatKHR_array
+createSwapchain => getPhysicalDeviceSurfaceFormatAndColorSpace() SUCCEEDED
+createSwapchain => vkGetPhysicalDeviceSurfaceCapabilitiesKHR() SUCCEEDED
+createSwapchain => [If Block] => Swapchain Image Width x Swapchain Image Height = 1264 x 681
+getPhysicalDevicePresentMode => vkGetPhysicalDeviceSurfacePresentModesKHRF() First Call SUCCEEDED
+getPhysicalDevicePresentMode => vkGetPhysicalDeviceSurfacePresentModesKHRF() Second Call SUCCEEDED
+getPhysicalDevicePresentMode => VK_PRESENT_MODE_MAILBOX_KHR
+getPhysicalDevicePresentMode => vkPresentModeKHR_array free succesfully...
+createSwapchain => getPhysicalDevicePresentMode() SUCCEEDED
+createSwapchain => vkCreateSwapchainKHR() SUCCEEDED
+createImagesAndImageViews => vkGetSwapchainImagesKHR() IS SUCCEEDED.[1st Call]
+createImagesAndImageViews => createImagesAndImageViews() gave swapChainImageCount = 2 .
+createImagesAndImageViews => vkGetSwapchainImagesKHR() IS SUCCEEDED.[2nd Call]
+createImagesAndImageViews => vkCreateImageView() IS SUCCEEDED FOR INTERATION 0.
+createImagesAndImageViews => vkCreateImageView() IS SUCCEEDED FOR INTERATION 1.
+createCommandBuffers => vkAllocateCommandBuffers() IS SUCCEEDED.
+createCommandBuffers => vkAllocateCommandBuffers() IS SUCCEEDED.
+createPipelineLayout => vkCreatePipelineLayout() IS SUCCEEDED.
+createPipeline => vkCreatePipelineCache() IS SUCCEEDED.
+createPipeline => vkCreateGraphicsPipelines() IS SUCCEEDED.
+createRenderPass => vkCreateRenderPass() IS SUCCEEDED.
+createFrameBuffer => vkCreateFramebuffer() IS SUCCEEDED FOR INDEX 0.
+createFrameBuffer => vkCreateFramebuffer() IS SUCCEEDED FOR INDEX 1.
+buildCommandBuffers => vkResetCommandBuffer() IS SUCCEEDED FOR INDEX 0.
+buildCommandBuffers => vkBeginCommandBuffer() IS SUCCEEDED FOR INDEX 0.
+buildCommandBuffers => vkEndCommandBuffer() IS SUCCEEDED FOR INDEX 0.
+buildCommandBuffers => vkResetCommandBuffer() IS SUCCEEDED FOR INDEX 1.
+buildCommandBuffers => vkBeginCommandBuffer() IS SUCCEEDED FOR INDEX 1.
+buildCommandBuffers => vkEndCommandBuffer() IS SUCCEEDED FOR INDEX 1.
+===========================================================================================
+uninitialize => vkDeviceWaitIdle is Done.
+uninitialize => vkFence_Array[0] DESTROYED SUCCESSFULLY.
+uninitialize => vkFence_Array[1] DESTROYED SUCCESSFULLY.
+uninitialize => vkFence_Array FREE SUCCESSFULLY.
+uninitialize => vkSemaphore_RenderComplete DESTROYED SUCCESSFULLY.
+uninitialize => vkSemaphore_RenderComplete DESTROYED SUCCESSFULLY.
+uninitialize => vkCommandBuffer_Array[0] DESTROYED SUCCESSFULLY.
+uninitialize => vkCommandBuffer_Array[1] DESTROYED SUCCESSFULLY.
+uninitialize => vkCommandBuffer_Array FREE SUCCESSFULLY.
+uninitialize => vkCommandPool DESTROYED SUCCESSFULLY.
+uninitialize => vkSwapChainImageViews_Array[0] DESTROYED SUCCESSFULLY.
+uninitialize => vkSwapChainImageViews_Array[1] DESTROYED SUCCESSFULLY.
+uninitialize => vkSwapChainImageViews_Array FREE SUCCESSFULLY.
+uninitialize => vkDestroySwapchainKHR() Succeeded
+uninitialize => vkDevice DESTROYED SUCCESSFULLY.
+uninitialize => VULKAN PRESENTATION SURFACE DESTROYED SUCCESSFULLY.
+uninitialize => vkDebugReportCallbackEXT SUCCESSFULLY.
+uninitialize => VULKAN INSTANCE DESTROYED SUCCESSFULLY.
+uninitialize => DESTROY WINDOW DESTROYED SUCCESSFULLY.
+uninitialize => LOG FILE SUCCESSFULLY CLOSED.
+===========================================================================================
